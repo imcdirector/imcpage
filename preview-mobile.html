@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>모바일 버전 미리보기</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background:
+          radial-gradient(circle at top, rgba(27, 56, 76, 0.52), rgba(6, 7, 8, 0) 48%),
+          #060708;
+        color: #f4f7f6;
+        font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+        padding: 24px 16px;
+      }
+
+      .preview-shell {
+        display: grid;
+        gap: 16px;
+        justify-items: center;
+      }
+
+      .preview-head {
+        display: grid;
+        gap: 6px;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .preview-title {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+
+      .preview-link {
+        color: #b9ffe2;
+        text-decoration: none;
+        font-size: 13px;
+      }
+
+      .preview-stage {
+        width: min(390px, calc(100vw - 32px));
+        aspect-ratio: 390 / 844;
+        padding: 12px;
+        border-radius: 42px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.04)),
+          #101214;
+        box-shadow:
+          0 30px 80px rgba(0, 0, 0, 0.42),
+          0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+      }
+
+      .preview-stage::before {
+        content: "";
+        display: block;
+        width: 120px;
+        height: 6px;
+        margin: 0 auto 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.18);
+      }
+
+      iframe {
+        width: 100%;
+        height: calc(100% - 14px);
+        border: 0;
+        border-radius: 30px;
+        background: #000000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="preview-shell">
+      <div class="preview-head">
+        <h1 class="preview-title">모바일 버전 미리보기</h1>
+        <a class="preview-link" href="./index.html">원본 열기</a>
+      </div>
+      <div class="preview-stage">
+        <iframe src="./index.html" title="모바일 버전 미리보기" allow="autoplay; fullscreen"></iframe>
+      </div>
+    </div>
+  </body>
+</html>

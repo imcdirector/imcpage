@@ -1,0 +1,244 @@
+.chapter-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0ms linear 520ms;
+  transform: translateY(18px);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.chapter-scene::-webkit-scrollbar {
+  display: none;
+}
+
+.chapter-scene[aria-hidden="true"] {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(18px);
+}
+
+body.scene-chapter-open .chapter-scene[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0ms;
+}
+
+.chapter-scene__scroll {
+  width: 100%;
+  min-height: 100%;
+}
+
+.chapter-panel {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  padding: clamp(112px, 14vh, 160px) 6vw 12vh;
+}
+
+.about-stage {
+  width: min(100%, 980px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: clamp(42px, 6vh, 58px);
+  justify-items: center;
+  text-align: center;
+  transform: translateY(clamp(18px, 2.4vh, 28px));
+}
+
+.about-stage__manifesto {
+  width: min(100%, 980px);
+  display: grid;
+  gap: 10px;
+}
+
+.about-stage__manifesto p {
+  margin: 0 auto;
+  max-width: 44em;
+  font-family: "A Gothic 12", "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(13px, 0.95vw, 17px);
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.42),
+    0 0 20px rgba(0, 0, 0, 0.16);
+}
+
+.trait-orbs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(34px, 4vw, 82px);
+  width: min(100%, 760px);
+}
+
+.trait-orb {
+  position: relative;
+  width: clamp(41px, 4vw, 61px);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+}
+
+.trait-orb__label {
+  position: relative;
+  z-index: 2;
+  font-family: "A Gothic 17", "A Gothic 18", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(13px, 0.95vw, 17px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.trait-orb--destiny {
+  background: #ffffff;
+}
+
+.trait-orb--destiny .trait-orb__label {
+  color: rgba(14, 14, 14, 0.96);
+}
+
+.trait-orb--quality {
+  background: rgba(185, 255, 226, 0.02);
+  border: 2px solid rgba(185, 255, 226, 0.96);
+}
+
+.trait-orb--quality .trait-orb__label {
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.trait-orb--capability {
+  background: #ffffff;
+}
+
+.trait-orb--capability::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 68% 30%, rgba(196, 255, 235, 0.96) 0%, rgba(225, 255, 244, 0.84) 34%, rgba(255, 255, 255, 0) 74%);
+}
+
+.trait-orb--capability::after {
+  content: "";
+  position: absolute;
+  inset: -31%;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(34, 255, 184, 0.58) 0%, rgba(34, 255, 184, 0.28) 28%, rgba(34, 255, 184, 0.12) 50%, rgba(34, 255, 184, 0) 74%);
+  filter: blur(12px);
+  z-index: 0;
+}
+
+.trait-orb--capability .trait-orb__label {
+  color: rgba(14, 14, 14, 0.96);
+}
+
+.about-stage__identity {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.2vw, 16px);
+  margin-top: 0;
+}
+
+.about-stage__name {
+  font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(15px, 1.08vw, 19px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.42),
+    0 0 18px rgba(0, 0, 0, 0.16);
+}
+
+.about-stage__signature-image {
+  display: block;
+  width: auto;
+  height: clamp(48px, 4vw, 68px);
+  opacity: 0.9;
+  filter:
+    invert(1)
+    brightness(1.06)
+    contrast(1.04)
+    drop-shadow(0 2px 12px rgba(0, 0, 0, 0.34));
+}
+
+@media (max-width: 960px) {
+  .chapter-panel {
+    padding: 108px 24px 10vh;
+  }
+
+  .trait-orbs {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .chapter-panel {
+    padding: 94px 18px 12vh;
+  }
+
+  .about-stage {
+    gap: 34px;
+    transform: translateY(18px);
+  }
+
+  .about-stage__manifesto {
+    gap: 8px;
+  }
+
+  .about-stage__manifesto p {
+    font-size: clamp(12px, 3.3vw, 13px);
+    line-height: 1.25;
+  }
+
+  .trait-orbs {
+    gap: 18px;
+  }
+
+  .trait-orb {
+    width: clamp(36px, 10.8vw, 47px);
+  }
+
+  .trait-orb__label {
+    font-size: clamp(12px, 3.3vw, 13px);
+  }
+
+  .about-stage__identity {
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 0;
+  }
+
+  .about-stage__name {
+    font-size: clamp(13px, 3.8vw, 15px);
+    letter-spacing: 0.06em;
+  }
+
+  .about-stage__signature-image {
+    height: 42px;
+  }
+}

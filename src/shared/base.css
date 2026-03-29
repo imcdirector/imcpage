@@ -1,0 +1,221 @@
+@font-face {
+  font-family: "A Gothic 12";
+  src: url("../../assets/fonts/agothic13.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "A Gothic 18";
+  src: url("../../assets/fonts/agothic18.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "A Gothic 17";
+  src: url("../../assets/fonts/agothic18.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "A Gothic 13";
+  src: url("../../assets/fonts/agothic13.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --hero-text: #ffffff;
+  --hero-black: rgba(0, 0, 0, 0.9);
+  --hero-title-size: clamp(22px, 1.58vw, 25px);
+  --hero-title-weight: 400;
+  --hero-title-line-height: 1.18;
+  --hero-title-letter-spacing: -0.02em;
+  --hero-title-shadow:
+    0 3px 14px rgba(0, 0, 0, 0.68),
+    0 0 28px rgba(0, 0, 0, 0.5);
+  --menu-text-size: clamp(24px, 1.76vw, 28px);
+  --menu-line-height: 1.18;
+  --menu-letter-spacing: -0.02em;
+  --menu-detail-gap: 0.42em;
+  --menu-accent: #b9ffe2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #000000;
+}
+
+body {
+  font-family: "A Gothic 18", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  overflow: hidden;
+}
+
+.sound-toggle {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.48);
+  color: rgba(255, 255, 255, 0.34);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    opacity 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.sound-toggle:hover {
+  background: rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.sound-toggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.72);
+  outline-offset: 3px;
+}
+
+.sound-toggle__icon {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+}
+
+.sound-toggle__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.sound-toggle__slash {
+  opacity: 1;
+  transition: opacity 180ms ease;
+}
+
+.sound-toggle.is-on {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.36);
+  color: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 0 18px rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.sound-toggle.is-on .sound-toggle__slash {
+  opacity: 0;
+}
+
+.home-toggle {
+  position: fixed;
+  right: 24px;
+  bottom: 78px;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.48);
+  color: rgba(255, 255, 255, 0.42);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    opacity 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.home-toggle__icon {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+}
+
+.home-toggle__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.home-toggle:hover {
+  background: rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.32);
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.home-toggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.72);
+  outline-offset: 3px;
+}
+
+body.scene-chapter-open .home-toggle {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.transition-blackout {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms linear;
+}
+
+body.is-blackout .transition-blackout {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .home-toggle,
+  .sound-toggle {
+    right: 16px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .sound-toggle {
+    bottom: 16px;
+  }
+
+  .home-toggle {
+    bottom: 64px;
+  }
+}
+
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,221 @@
+.method-stage {
+  width: min(100%, 1020px);
+  margin-inline: auto;
+  display: grid;
+  gap: clamp(42px, 6vh, 58px);
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+  transform: translateY(clamp(18px, 2.4vh, 28px));
+}
+
+.method-stage__intro {
+  display: grid;
+  gap: 0;
+  justify-items: center;
+  width: min(100%, 980px);
+}
+
+.method-stage__lead {
+  margin: 0;
+  max-width: 44em;
+  font-family: "A Gothic 12", "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(13px, 0.95vw, 17px);
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.42),
+    0 0 20px rgba(0, 0, 0, 0.16);
+  transform: translateY(-6px);
+}
+
+.method-flow {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2vw, 30px);
+  width: min(100%, 920px);
+}
+
+.method-flow::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: clamp(44px, 4vw, 62px);
+  right: clamp(44px, 4vw, 62px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(185, 255, 226, 0.86) 50%,
+    rgba(255, 255, 255, 0.28) 100%
+  );
+}
+
+.method-unit {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 14px;
+  padding: 0 clamp(10px, 1vw, 16px);
+}
+
+.method-unit::before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  margin-top: 11px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow:
+    0 0 0 5px rgba(0, 0, 0, 0.36),
+    0 0 14px rgba(255, 255, 255, 0.2);
+}
+
+.method-unit:nth-child(2)::before {
+  background: rgba(185, 255, 226, 0.98);
+  box-shadow:
+    0 0 0 5px rgba(0, 0, 0, 0.36),
+    0 0 16px rgba(185, 255, 226, 0.28);
+}
+
+.method-unit__index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  margin-top: 4px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.28);
+  font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.method-unit:nth-child(2) .method-unit__index {
+  border-color: rgba(185, 255, 226, 0.32);
+  color: rgba(185, 255, 226, 0.92);
+}
+
+.method-unit__title {
+  margin: 0;
+  font-family: "A Gothic 17", "A Gothic 18", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(18px, 1.36vw, 24px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.42),
+    0 0 20px rgba(0, 0, 0, 0.16);
+}
+
+.method-unit__text {
+  margin: 0;
+  max-width: 16em;
+  font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(13px, 0.95vw, 16px);
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.42),
+    0 0 20px rgba(0, 0, 0, 0.16);
+}
+
+.method-stage__closing {
+  margin: 0;
+  max-width: 40em;
+  font-family: "A Gothic 12", "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(13px, 0.95vw, 17px);
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.84);
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.42),
+    0 0 20px rgba(0, 0, 0, 0.16);
+}
+
+@media (max-width: 960px) {
+  .method-stage {
+    gap: 34px;
+  }
+
+  .method-flow {
+    gap: 18px;
+  }
+
+  .method-unit__text {
+    max-width: 15em;
+  }
+}
+
+@media (max-width: 640px) {
+  .method-stage {
+    gap: 34px;
+    transform: translateY(18px);
+  }
+
+  .method-stage__lead,
+  .method-stage__closing {
+    max-width: 24em;
+    font-size: clamp(12px, 3.3vw, 13px);
+    line-height: 1.25;
+  }
+
+  .method-stage__lead {
+    transform: translateY(-4px);
+  }
+
+  .method-flow {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    width: min(100%, 380px);
+  }
+
+  .method-flow::before {
+    top: 18px;
+    bottom: 18px;
+    left: 50%;
+    right: auto;
+    width: 1px;
+    height: auto;
+    transform: translateX(-50%);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(185, 255, 226, 0.86) 50%,
+      rgba(255, 255, 255, 0.28) 100%
+    );
+  }
+
+  .method-unit {
+    gap: 10px;
+    padding: 0;
+  }
+
+  .method-unit__index {
+    min-width: 48px;
+    font-size: 10px;
+  }
+
+  .method-unit__title {
+    font-size: clamp(16px, 4.6vw, 20px);
+  }
+
+  .method-unit__text {
+    max-width: 22em;
+    font-size: clamp(12px, 3.3vw, 13px);
+    line-height: 1.25;
+  }
+}
