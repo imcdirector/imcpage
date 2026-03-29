@@ -9,6 +9,7 @@ $ErrorActionPreference = "Stop"
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $root = (Resolve-Path (Join-Path $scriptDir "..\\..")).Path
 $baseUrl = "http://127.0.0.1:$Port"
+$serverScript = Join-Path $scriptDir "server.py"
 
 function Test-PreviewUrl {
   param([string]$Url)
@@ -44,9 +45,24 @@ if (-not (Get-Command python -ErrorAction SilentlyContinue)) {
   exit 1
 }
 
+function Stop-PreviewServer {
+  $connections = Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue
+  foreach ($connection in $connections) {
+    Stop-Process -Id $connection.OwningProcess -Force -ErrorAction SilentlyContinue
+  }
+}
+
+function Start-PreviewServer {
+  $python = (Get-Command python).Source
+  $pythonw = Join-Path (Split-Path $python) "pythonw.exe"
+  $launcher = if (Test-Path $pythonw) { $pythonw } else { $python }
+
+  Start-Process -FilePath $launcher -ArgumentList $serverScript, "--port", "$Port", "--root", $root -WindowStyle Hidden | Out-Null
+}
+
 if (-not (Test-PreviewUrl "$baseUrl/index.html")) {
-  $serverCommand = "Set-Location '$root'; python -m http.server $Port --bind 127.0.0.1"
-  Start-Process powershell -ArgumentList "-NoExit", "-ExecutionPolicy", "Bypass", "-Command", $serverCommand | Out-Null
+  Stop-PreviewServer
+  Start-PreviewServer
 
   $serverReady = $false
   for ($i = 0; $i -lt 20; $i += 1) {
@@ -85,17 +101,17 @@ function Open-PreviewPage {
 
 switch ($Mode) {
   "web" {
-    Open-PreviewPage -Page "preview-web.html" -Width 1460 -Height 940 -X 60 -Y 60
+    Open-PreviewPage -Page "" -Width 1460 -Height 940 -X 60 -Y 60
   }
   "mobile" {
-    Open-PreviewPage -Page "preview-mobile.html" -Width 470 -Height 940 -X 1540 -Y 60
+    Open-PreviewPage -Page "mobile/" -Width 470 -Height 940 -X 1540 -Y 60
   }
   "both" {
-    Open-PreviewPage -Page "preview-web.html" -Width 1460 -Height 940 -X 60 -Y 60
-    Open-PreviewPage -Page "preview-mobile.html" -Width 470 -Height 940 -X 1540 -Y 60
+    Open-PreviewPage -Page "" -Width 1460 -Height 940 -X 60 -Y 60
+    Open-PreviewPage -Page "mobile/" -Width 470 -Height 940 -X 1540 -Y 60
   }
 }
 
 Write-Host "Preview server: $baseUrl"
-Write-Host "Web preview: $baseUrl/preview-web.html"
-Write-Host "Mobile preview: $baseUrl/preview-mobile.html"
+Write-Host "Web preview: $baseUrl/"
+Write-Host "Mobile preview: $baseUrl/mobile/"
