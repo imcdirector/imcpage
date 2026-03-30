@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>세아팸부 부부 검토용</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&display=swap">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07090d;
+      --panel: rgba(18, 22, 31, 0.94);
+      --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(255, 255, 255, 0.16);
+      --text: #f4f7fb;
+      --muted: #97a1b5;
+      --accent: #4d8dff;
+      --positive: #1cff75;
+      --negative: #ff4d5e;
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Gothic A1", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(77, 141, 255, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(28, 255, 117, 0.09), transparent 25%),
+        linear-gradient(180deg, #06070b 0%, #0d1016 42%, #07090d 100%);
+      color: var(--text);
+      padding: 24px;
+      line-height: 1.55;
+    }
+    h1, h2, h3, p { margin: 0; }
+    .page { max-width: 1320px; margin: 0 auto; display: grid; gap: 18px; }
+    .surface {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(18, 22, 31, 0.96), rgba(12, 15, 22, 0.94)),
+        radial-gradient(circle at top right, rgba(77, 141, 255, 0.12), transparent 34%);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+    .hero {
+      padding: 28px;
+      display: grid;
+      gap: 18px;
+    }
+    .brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-mark {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      font-weight: 800;
+      color: #f8fbff;
+      background: linear-gradient(135deg, #3f7cff 0%, #69a4ff 100%);
+      box-shadow: 0 16px 40px rgba(77, 141, 255, 0.34);
+    }
+    .eyebrow {
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .pill-row, .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .pill, .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .pill.primary {
+      border-color: rgba(77, 141, 255, 0.22);
+      background: rgba(77, 141, 255, 0.12);
+      color: #d8e6ff;
+    }
+    .pill.positive { color: var(--positive); background: rgba(28, 255, 117, 0.1); border-color: rgba(28, 255, 117, 0.16); }
+    .pill.negative { color: var(--negative); background: rgba(255, 77, 94, 0.1); border-color: rgba(255, 77, 94, 0.16); }
+    .sub-copy { color: var(--muted); }
+    .stage {
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+    }
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .desktop {
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(10,12,19,0.98), rgba(6,8,12,0.98));
+      padding: 16px;
+    }
+    .screen {
+      border-radius: 28px;
+      background: radial-gradient(circle at top left, rgba(77, 141, 255, 0.12), transparent 32%), linear-gradient(180deg, rgba(17,20,29,0.98), rgba(10,12,18,0.98));
+      padding: 20px;
+      display: grid;
+      gap: 18px;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .user-pill {
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+    .column, .stack, .flow-board, .field-grid {
+      display: grid;
+      gap: 12px;
+    }
+    .panel, .summary-card, .card, .flow-box, .flow-result, .field-box {
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 16px;
+    }
+    .summary-grid, .flow-split, .showcase {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .summary-card { min-height: 124px; border-color: var(--line-strong); }
+    .summary-card.positive { border-color: rgba(28,255,117,0.16); }
+    .summary-card.negative { border-color: rgba(255,77,94,0.16); }
+    .summary-label { color: var(--muted); margin-bottom: 10px; font-size: 12px; }
+    .summary-value { font-size: 24px; font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+    .summary-value.positive, .amount-positive { color: var(--positive); }
+    .summary-value.negative, .amount-negative { color: var(--negative); }
+    .summary-meta { margin-top: 10px; color: var(--muted); font-size: 12px; }
+    .flow-box.positive { box-shadow: inset 0 0 0 1px rgba(28,255,117,0.08); }
+    .flow-box.negative { box-shadow: inset 0 0 0 1px rgba(255,77,94,0.08); }
+    .flow-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .flow-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.05);
+      font-size: 20px;
+      font-weight: 800;
+    }
+    .flow-box.positive .flow-mark { color: var(--positive); }
+    .flow-box.negative .flow-mark { color: var(--negative); }
+    .flow-total { font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums; }
+    .flow-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .flow-item:first-of-type { border-top: none; padding-top: 0; }
+    .flow-item strong { margin: 0; font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .flow-result {
+      border-color: var(--line-strong);
+      background: linear-gradient(135deg, rgba(77,141,255,0.16), rgba(255,255,255,0.03));
+    }
+    .big-number { font-size: 36px; line-height: 1.02; letter-spacing: -0.04em; font-weight: 800; font-variant-numeric: tabular-nums; }
+    .field-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .field-box label { display: block; color: var(--muted); margin-bottom: 8px; }
+    .field-value {
+      min-height: 42px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+    }
+    .caption { color: var(--muted); text-align: center; }
+    @media (max-width: 980px) {
+      .split, .summary-grid, .flow-split, .showcase, .field-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      body { padding: 16px; }
+      .hero, .stage { padding: 18px; }
+      .big-number { font-size: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="surface hero">
+      <div class="brand-row">
+        <div class="brand">
+          <div class="brand-mark">세</div>
+          <div>
+            <p class="eyebrow">SeAFamBu Review</p>
+            <h1>세아팸부 부부 검토용 화면</h1>
+          </div>
+        </div>
+        <div class="pill-row">
+          <span class="pill primary">Couple Review</span>
+          <span class="pill positive">+ 수입 강조</span>
+          <span class="pill negative">- 지출 강조</span>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Concept</p>
+        <h2>왼쪽은 분류형 대시보드, 오른쪽은 돈의 흐름을 + / - 숫자로 읽는 구조</h2>
+      </div>
+      <p class="sub-copy">부부가 함께 보기 편한 형태로 정리한 공유용 시안입니다. 수기 입력을 기본으로 두고, 카드와 계좌 자동연동은 가능 구조로 열어두는 방향입니다.</p>
+      <div class="chip-row">
+        <span class="chip">공동 household</span>
+        <span class="chip">세아 자산 분리</span>
+        <span class="chip">주식 합계 표시</span>
+        <span class="chip">수기 + 자동입력</span>
+      </div>
+    </section>
+
+    <section class="surface stage">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">Desktop Home</p>
+          <h3>공유용 홈 화면 시안</h3>
+        </div>
+        <div class="user-pill">부부 공동 가계 · 2026년 3월</div>
+      </div>
+
+      <div class="desktop">
+        <div class="screen">
+          <div class="topbar">
+            <div>
+              <div class="eyebrow">Home</div>
+              <h3>세아팸부 대시보드</h3>
+            </div>
+            <div class="sub-copy">공평하게 확인하는 부부 가계 흐름</div>
+          </div>
+
+          <div class="split">
+            <div class="column">
+              <section class="panel">
+                <div class="section-title">
+                  <div>
+                    <p class="eyebrow">Dashboard</p>
+                    <h3>이번 달 가계 한눈에</h3>
+                  </div>
+                </div>
+                <div class="summary-grid">
+                  <div class="summary-card positive"><div class="summary-label">이번 달 총수입</div><div class="summary-value positive">+ 7,800,000원</div><div class="summary-meta">부부 월급 합계</div></div>
+                  <div class="summary-card negative"><div class="summary-label">공동생활비</div><div class="summary-value negative">- 2,960,000원</div><div class="summary-meta">고정 2,010,000 / 변동 950,000</div></div>
+                  <div class="summary-card negative"><div class="summary-label">대출 원금</div><div class="summary-value negative">- 1,100,000원</div><div class="summary-meta">실제 빚이 줄어든 금액</div></div>
+                  <div class="summary-card negative"><div class="summary-label">대출 이자</div><div class="summary-value negative">- 230,000원</div><div class="summary-meta">비용으로 빠져나간 금액</div></div>
+                  <div class="summary-card negative"><div class="summary-label">저축액</div><div class="summary-value negative">- 2,040,000원</div><div class="summary-meta">공동 저축 목표 3개</div></div>
+                  <div class="summary-card positive"><div class="summary-label">남은 돈</div><div class="summary-value positive">+ 1,470,000원</div><div class="summary-meta">이번 달 예상 잔액</div></div>
+                </div>
+              </section>
+
+              <section class="panel">
+                <div class="section-title">
+                  <div>
+                    <p class="eyebrow">Categories</p>
+                    <h3>분류형 대시보드</h3>
+                  </div>
+                </div>
+                <div class="stack">
+                  <div class="card"><strong>공동 관리 원칙</strong><div class="sub-copy">부부가 함께 확인하고 조율하는 흐름을 중심으로 정리한 공유용 화면입니다.</div></div>
+                  <div class="card"><strong>생활비 분류</strong><div class="sub-copy">식비 410,000원 · 육아 230,000원 · 교통 140,000원 · 문화 170,000원</div></div>
+                  <div class="card"><strong>세아 자산 현황</strong><div class="sub-copy">세아 저축 6,650,000원 · 세아 투자 3,650,000원 · 목표 진행률 43%</div></div>
+                  <div class="card"><strong>포트폴리오 요약</strong><div class="sub-copy">평가금액 1,897,640원 · 수익률 +6.5% · 합계 중심으로 단순하게 표시</div></div>
+                </div>
+              </section>
+            </div>
+
+            <div class="column">
+              <section class="panel">
+                <div class="section-title">
+                  <div>
+                    <p class="eyebrow">Plus Minus Flow</p>
+                    <h3>숫자로 보는 + / - 흐름</h3>
+                  </div>
+                </div>
+                <div class="flow-board">
+                  <div class="flow-split">
+                    <div class="flow-box positive">
+                      <div class="flow-head"><div class="flow-mark">+</div><div><strong>들어오는 돈</strong><div class="flow-total amount-positive">+ 8,300,000원</div></div></div>
+                      <div class="flow-item"><span>전월 이월금</span><strong class="amount-positive">+ 500,000원</strong></div>
+                      <div class="flow-item"><span>부부 월급 합계</span><strong class="amount-positive">+ 7,800,000원</strong></div>
+                    </div>
+                    <div class="flow-box negative">
+                      <div class="flow-head"><div class="flow-mark">-</div><div><strong>나가는 돈</strong><div class="flow-total amount-negative">- 6,830,000원</div></div></div>
+                      <div class="flow-item"><span>생활비</span><strong class="amount-negative">- 2,960,000원</strong></div>
+                      <div class="flow-item"><span>대출 원금</span><strong class="amount-negative">- 1,100,000원</strong></div>
+                      <div class="flow-item"><span>대출 이자</span><strong class="amount-negative">- 230,000원</strong></div>
+                      <div class="flow-item"><span>저축</span><strong class="amount-negative">- 2,540,000원</strong></div>
+                    </div>
+                  </div>
+                  <div class="flow-result"><span>이번 달 남은 돈</span><div class="big-number amount-positive">+ 1,470,000원</div><div class="sub-copy">큰 숫자로 현재 흐름을 먼저 읽고, 아래 입력 화면으로 이어지는 구조입니다.</div></div>
+                </div>
+              </section>
+
+              <section class="panel">
+                <div class="section-title">
+                  <div>
+                    <p class="eyebrow">Input View</p>
+                    <h3>수기 + 자동입력 방향</h3>
+                  </div>
+                </div>
+                <div class="stack">
+                  <div class="card"><strong>수기 입력</strong><div class="sub-copy">월급 항목, 생활비, 대출을 바로 입력하고 즉시 가계 요약에 반영</div></div>
+                  <div class="card"><strong>자동 입력</strong><div class="sub-copy">카드와 계좌는 연동 가능 구조로 열어두고, 비용이나 승인 이슈가 있으면 수기 fallback 선택</div></div>
+                  <div class="card"><strong>함께 보는 방식</strong><div class="sub-copy">카드와 계좌는 각자 등록하고, 함께 볼 항목은 부부가 조율해 관리하는 흐름으로 표현했습니다.</div></div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="caption">공유용 링크에서는 비대칭 권한 문구를 빼고, 부부가 함께 보는 흐름 중심으로 보이도록 정리했습니다.</p>
+    </section>
+
+    <section class="showcase">
+      <article class="surface stage">
+        <div class="section-title"><div><p class="eyebrow">Manual Entry</p><h3>수기 입력 예시</h3></div></div>
+        <div class="field-grid">
+          <div class="field-box"><label>월급 항목 1</label><div class="field-value">4,100,000</div></div>
+          <div class="field-box"><label>월급 항목 2</label><div class="field-value">3,700,000</div></div>
+          <div class="field-box"><label>생활비</label><div class="field-value">2,960,000</div></div>
+          <div class="field-box"><label>대출 이자</label><div class="field-value">230,000</div></div>
+        </div>
+      </article>
+      <article class="surface stage">
+        <div class="section-title"><div><p class="eyebrow">Auto Entry</p><h3>자동입력 예시</h3></div></div>
+        <div class="field-grid">
+          <div class="field-box"><label>구분</label><div class="field-value">공동 체크카드</div></div>
+          <div class="field-box"><label>연동 공급자</label><div class="field-value">데모 자동연동</div></div>
+          <div class="field-box"><label>상태</label><div class="field-value">connected</div></div>
+          <div class="field-box"><label>함께 보기 설정</label><div class="field-value">부부 함께 보기</div></div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
