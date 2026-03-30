@@ -44,21 +44,26 @@ body.scene-chapter-open .chapter-scene[aria-hidden="false"] {
 }
 
 .chapter-panel {
+  --chapter-panel-padding-bottom: 12vh;
   min-height: 100vh;
-  display: grid;
-  align-items: center;
-  padding: clamp(112px, 14vh, 160px) 6vw 12vh;
+  display: block;
+  padding:
+    var(--chapter-panel-padding-top)
+    var(--chapter-panel-padding-inline)
+    var(--chapter-panel-padding-bottom);
 }
 
 .about-stage {
   width: min(100%, 980px);
+  min-height: var(--chapter-scene-min-height);
   margin-inline: auto;
   display: grid;
   grid-template-rows: auto auto auto;
   gap: clamp(42px, 6vh, 58px);
+  align-content: start;
   justify-items: center;
   text-align: center;
-  transform: translateY(clamp(18px, 2.4vh, 28px));
+  transform: none;
 }
 
 .about-stage__manifesto {
@@ -70,15 +75,6 @@ body.scene-chapter-open .chapter-scene[aria-hidden="false"] {
 .about-stage__manifesto p {
   margin: 0 auto;
   max-width: 44em;
-  font-family: "A Gothic 12", "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(13px, 0.95vw, 17px);
-  font-weight: 400;
-  line-height: 1.28;
-  letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow:
-    0 2px 10px rgba(0, 0, 0, 0.42),
-    0 0 20px rgba(0, 0, 0, 0.16);
 }
 
 .trait-orbs {
@@ -187,23 +183,15 @@ body.scene-chapter-open .chapter-scene[aria-hidden="false"] {
 }
 
 @media (max-width: 960px) {
-  .chapter-panel {
-    padding: 108px 24px 10vh;
-  }
-
   .trait-orbs {
     gap: 28px;
   }
 }
 
 @media (max-width: 640px) {
-  .chapter-panel {
-    padding: 94px 18px 12vh;
-  }
-
   .about-stage {
     gap: 34px;
-    transform: translateY(18px);
+    transform: none;
   }
 
   .about-stage__manifesto {
@@ -211,8 +199,7 @@ body.scene-chapter-open .chapter-scene[aria-hidden="false"] {
   }
 
   .about-stage__manifesto p {
-    font-size: clamp(12px, 3.3vw, 13px);
-    line-height: 1.25;
+    max-width: 24em;
   }
 
   .trait-orbs {

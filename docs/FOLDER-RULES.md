@@ -8,7 +8,7 @@
 | 2장 | `src/scenes/02-about` | 최영렬 소개 | `about.css`, `README.md` | 완료 |
 | 3장 | `src/scenes/03-values` | 기준과 가치 | `values.css`, `README.md` | 완료 |
 | 4장 | `src/scenes/04-method` | 해결 방식 | `method.css`, `README.md` | 완료 |
-| 5장 | `src/scenes/05-history-areas` | 이력과 영역 | `history-areas.css`, `history-areas.js`, `README.md` | 예정 |
+| 5장 | `src/scenes/05-history-areas` | 이력과 영역 | `history-areas.css`, `history-areas.js`, `README.md` | 완료 |
 | 6장 | `src/scenes/06-work` | 하는 일 | `work.css`, `work.js`, `README.md` | 예정 |
 | 7장 | `src/scenes/07-contact` | 의뢰하기 | `contact.css`, `contact.js`, `README.md` | 예정 |
 

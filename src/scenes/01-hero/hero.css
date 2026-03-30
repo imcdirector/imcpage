@@ -87,6 +87,34 @@
   display: inline-block;
 }
 
+.hero__entry-note {
+  position: absolute;
+  top: calc(100% + clamp(18px, 2.2vh, 24px));
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1em;
+  padding: 0;
+  font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(11px, 0.82vw, 13px);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  color: rgba(185, 255, 226, 0.78);
+  text-shadow:
+    0 1px 6px rgba(0, 0, 0, 0.42),
+    0 0 12px rgba(185, 255, 226, 0.08);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    color 220ms ease;
+}
+
 .hero__caret {
   display: inline-block;
   margin-left: 0.06em;
@@ -100,6 +128,12 @@
     0 3px 14px rgba(0, 0, 0, 0.72),
     0 0 28px rgba(255, 255, 255, 0.08),
     0 0 24px rgba(0, 0, 0, 0.5);
+}
+
+.hero__title.is-ready:hover .hero__entry-note,
+.hero__title:focus-visible .hero__entry-note {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 .hero__title:focus-visible {
@@ -116,7 +150,8 @@ body.scene-chapter-open .hero__content {
 }
 
 body.scene-chapter-open .hero__title,
-body.scene-chapter-open .hero__caret {
+body.scene-chapter-open .hero__caret,
+body.scene-chapter-open .hero__entry-note {
   animation: none !important;
   opacity: 0 !important;
 }
@@ -153,5 +188,20 @@ body.scene-chapter-open .hero__overlay {
 
   to {
     opacity: 1;
+  }
+}
+
+@media (hover: none) {
+  .hero__title:hover .hero__entry-note {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero__entry-note {
+    top: calc(100% + 16px);
+    font-size: clamp(10px, 3vw, 11px);
+    letter-spacing: 0.06em;
   }
 }

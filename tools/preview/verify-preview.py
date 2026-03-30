@@ -72,9 +72,12 @@ def verify_index(driver, mobile=False):
 
     before = driver.execute_script(
         """
+        const note = document.querySelector(".hero__entry-note");
+        const noteStyle = note ? window.getComputedStyle(note) : null;
         const audio = document.getElementById("site-audio");
         return {
-          noteExists: !!document.querySelector(".hero__entry-note"),
+          noteExists: !!note,
+          noteOpacity: noteStyle ? noteStyle.opacity : null,
           paused: audio.paused,
           currentTime: audio.currentTime,
           width: window.innerWidth,
@@ -148,8 +151,10 @@ def main():
     server.shutdown()
     server.server_close()
 
-    assert results["desktop_index"]["before"]["noteExists"] is False
-    assert results["mobile_index"]["before"]["noteExists"] is False
+    assert results["desktop_index"]["before"]["noteExists"] is True
+    assert float(results["desktop_index"]["before"]["noteOpacity"]) > 0.9
+
+    assert results["mobile_index"]["before"]["noteExists"] is True
 
     assert results["desktop_index"]["before"]["mobile"] is False
     assert results["web_wrapper"]["mobile"] is False

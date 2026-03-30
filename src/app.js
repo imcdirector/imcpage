@@ -2,6 +2,7 @@ import { setupAudio } from "./shared/audio.js";
 import { setupChapterNav } from "./shared/chapter-nav.js?v=20260330-navfix-1";
 import { createSceneController } from "./shared/scene-controller.js?v=20260330-navfix-1";
 import { setupHeroScene } from "./scenes/01-hero/hero.js?v=20260330-navfix-1";
+import { setupHistoryAreasScene } from "./scenes/05-history-areas/history-areas.js?v=20260330-history-areas-1";
 
 export function bootstrapApp() {
   const audio = document.getElementById("site-audio");
@@ -11,6 +12,7 @@ export function bootstrapApp() {
   const heroTitle = document.getElementById("hero-title");
   const heroTitleKorean = document.getElementById("hero-title-korean");
   const chapterNav = document.getElementById("chapter-nav");
+  const chapterNavRow = chapterNav?.querySelector(".chapter-nav__nav") ?? null;
   const blackout = document.getElementById("transition-blackout");
   const menuItems = Array.from(document.querySelectorAll(".menu-item"));
   const menuDetailRow = document.getElementById("menu-detail-row");
@@ -57,6 +59,28 @@ export function bootstrapApp() {
     },
   });
 
+  const syncChapterTitleAnchor = () => {
+    const navTarget = chapterNavRow ?? chapterNav;
+
+    if (!navTarget) {
+      return;
+    }
+
+    const { bottom } = navTarget.getBoundingClientRect();
+    document.documentElement.style.setProperty(
+      "--chapter-nav-row-bottom",
+      `${Math.max(0, Math.round(bottom * 100) / 100)}px`,
+    );
+  };
+
+  const queueChapterTitleAnchorSync = () => {
+    window.requestAnimationFrame(syncChapterTitleAnchor);
+  };
+
+  setupHistoryAreasScene({
+    stage: document.querySelector(".history-stage"),
+  });
+
   homeToggle.addEventListener("click", (event) => {
     event.stopPropagation();
     chapterNavController.reset();
@@ -69,6 +93,19 @@ export function bootstrapApp() {
   window.addEventListener("DOMContentLoaded", () => {
     audioController.initialize();
     sceneController.initialize();
+    syncChapterTitleAnchor();
     window.setTimeout(heroController.startTypewriter, heroController.typeStartDelay);
   });
+
+  window.addEventListener("resize", queueChapterTitleAnchorSync, { passive: true });
+  window.addEventListener("orientationchange", queueChapterTitleAnchorSync);
+
+  if (typeof ResizeObserver === "function" && chapterNavRow) {
+    const chapterNavObserver = new ResizeObserver(queueChapterTitleAnchorSync);
+    chapterNavObserver.observe(chapterNavRow);
+  }
+
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(queueChapterTitleAnchorSync).catch(() => {});
+  }
 }

@@ -1,0 +1,291 @@
+.chapter-panel--history-areas {
+  --chapter-panel-padding-bottom: 10vh;
+  display: block;
+  padding:
+    var(--chapter-panel-padding-top)
+    var(--chapter-panel-padding-inline)
+    var(--chapter-panel-padding-bottom);
+}
+
+.history-stage {
+  width: min(100%, 1020px);
+  min-height: var(--chapter-scene-min-height);
+  margin-inline: auto;
+  display: grid;
+  gap: clamp(18px, 2.4vh, 24px);
+  align-content: start;
+  padding-top: 0;
+}
+
+.history-stage__intro {
+  display: grid;
+  align-items: start;
+  justify-items: center;
+  margin-top: 0;
+  text-align: center;
+}
+
+.history-stage__lead {
+  margin: 0;
+  align-self: start;
+  display: inline-block;
+  max-width: 44em;
+  white-space: nowrap;
+  transform: none;
+}
+
+.history-stage__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(44px, 5vw, 90px);
+  align-items: start;
+  margin-top: 0;
+}
+
+.career-trace,
+.area-spectrum {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.history-block__heading {
+  display: grid;
+  gap: 0;
+}
+
+.history-block__title {
+  margin: 0;
+  font-family: "A Gothic 17", "A Gothic 18", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(24px, 1.86vw, 32px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.42),
+    0 0 20px rgba(0, 0, 0, 0.16);
+}
+
+.career-trace__list {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.career-trace__item {
+  position: relative;
+}
+
+.career-step {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.career-step:focus-visible {
+  outline: 1px solid rgba(185, 255, 226, 0.42);
+  outline-offset: 8px;
+  border-radius: 12px;
+}
+
+.career-step__index {
+  display: block;
+  width: auto;
+  height: auto;
+  font-family: "A Gothic 16", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(11px, 0.82vw, 13px);
+  font-weight: 400;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  color: rgba(185, 255, 226, 0.78);
+  text-shadow: 0 0 12px rgba(185, 255, 226, 0.08);
+  transition: color 220ms ease;
+}
+
+.career-step__body {
+  display: block;
+}
+
+.career-step__title {
+  display: inline-block;
+  font-family: "A Gothic 17", "A Gothic 18", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(15px, 1.06vw, 18px);
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.42),
+    0 0 20px rgba(0, 0, 0, 0.16);
+  transition: color 220ms ease;
+}
+
+.career-step__text,
+.history-block__eyebrow,
+.area-card__text {
+  display: none;
+}
+
+.history-stage.is-linked .career-step:not(.is-active),
+.history-stage.is-linked .area-card:not(.is-active) {
+  opacity: 0.6;
+}
+
+.career-step.is-active .career-step__index,
+.career-step:hover .career-step__index,
+.career-step.is-active .career-step__title,
+.career-step:hover .career-step__title,
+.area-card.is-active .area-card__title,
+.area-card:hover .area-card__title {
+  color: rgba(185, 255, 226, 0.98);
+}
+
+.area-spectrum__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 44px;
+}
+
+.area-card {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.area-card::before {
+  display: none;
+}
+
+.area-card__title {
+  margin: 0;
+  font-family: "A Gothic 17", "A Gothic 18", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(15px, 1.06vw, 18px);
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.42),
+    0 0 20px rgba(0, 0, 0, 0.16);
+  transition: color 220ms ease;
+}
+
+.history-stage__closing {
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+  margin-top: auto;
+  text-align: center;
+}
+
+.history-stage__closing-rule {
+  display: block;
+  width: min(100%, 240px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(185, 255, 226, 0.84) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  box-shadow: 0 0 14px rgba(185, 255, 226, 0.12);
+}
+
+.history-stage__closing-text {
+  margin: 0;
+  max-width: 40em;
+  font-family: "A Gothic 12", "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(12px, 0.82vw, 14px);
+  font-weight: 400;
+  line-height: 1.34;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.84);
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.42),
+    0 0 20px rgba(0, 0, 0, 0.16);
+}
+
+@media (max-width: 960px) {
+  .history-stage {
+    width: min(100%, 860px);
+    gap: 22px;
+    padding-top: 0;
+  }
+
+  .history-stage__grid {
+    margin-top: 0;
+    gap: 34px 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  .chapter-panel--history-areas {
+    --chapter-panel-padding-bottom: 12vh;
+  }
+
+  .history-stage {
+    min-height: auto;
+    gap: 24px;
+    padding-top: 0;
+  }
+
+  .history-stage__lead {
+    max-width: 24em;
+    white-space: normal;
+    transform: none;
+  }
+
+  .history-stage__intro {
+    margin-top: 0;
+  }
+
+  .history-stage__grid {
+    grid-template-columns: 1fr;
+    margin-top: -8px;
+    gap: 30px;
+  }
+
+  .history-block__title {
+    font-size: clamp(18px, 5vw, 22px);
+  }
+
+  .career-step {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .career-step__index {
+    font-size: 10px;
+  }
+
+  .career-step__title,
+  .area-card__title {
+    font-size: clamp(13px, 3.8vw, 15px);
+  }
+
+  .area-spectrum__grid {
+    gap: 14px 26px;
+  }
+
+  .history-stage__closing-text {
+    max-width: 25em;
+    font-size: clamp(11px, 3vw, 12px);
+    line-height: 1.32;
+  }
+}
