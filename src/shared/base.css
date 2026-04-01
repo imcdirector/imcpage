@@ -58,6 +58,7 @@
   --chapter-scene-min-height: calc(
     100vh - var(--chapter-panel-padding-top) - var(--chapter-panel-padding-bottom)
   );
+  --values-rail-align-shift: 0px;
   --chapter-lead-family: "A Gothic 12", "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
   --chapter-lead-size: clamp(13px, 0.95vw, 17px);
   --chapter-lead-weight: 400;

@@ -32,7 +32,7 @@
   gap: clamp(20px, 2.6vh, 30px);
   width: min(100%, 760px);
   justify-items: center;
-  transform: translateX(clamp(26px, 2.2vw, 38px));
+  transform: translateX(calc(clamp(26px, 2.2vw, 38px) + var(--values-rail-align-shift)));
 }
 
 .value-line {
@@ -163,7 +163,7 @@
 
   .values-rail {
     gap: 18px;
-    transform: translateX(14px);
+    transform: translateX(calc(14px + var(--values-rail-align-shift)));
   }
 
   .value-line {
