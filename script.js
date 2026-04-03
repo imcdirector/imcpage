@@ -1,3 +1,3 @@
-import { bootstrapApp } from "./src/app.js?v=20260330-title-anchor-1";
+import { bootstrapApp } from "./src/app.js?v=20260403-values-fix-1";
 
 bootstrapApp();
