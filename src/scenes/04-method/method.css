@@ -66,12 +66,8 @@
   right: calc(12.5% - var(--method-arrow-overhang));
   width: var(--method-arrow-size);
   height: var(--method-arrow-size);
-  transform: translateY(-50%);
-  background: linear-gradient(
-    135deg,
-    rgba(82, 215, 178, 0.92) 0%,
-    rgba(147, 255, 230, 1) 100%
-  );
+  transform: translate(7px, -50%);
+  background: #8fffe2;
   clip-path: polygon(0 0, 100% 50%, 0 100%, 30% 50%);
   filter: drop-shadow(0 0 8px rgba(139, 255, 226, 0.32));
 }
@@ -145,8 +141,8 @@
 .method-unit:nth-child(4) .method-unit__index {
   border-color: rgba(154, 255, 231, 0.98);
   background:
-    radial-gradient(circle at 36% 34%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 38%),
-    rgba(17, 43, 36, 0.9);
+    radial-gradient(circle at 36% 34%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 36%),
+    rgba(17, 43, 36, 1);
   box-shadow:
     0 0 0 5px rgba(0, 0, 0, 0.48),
     0 0 18px rgba(139, 255, 226, 0.3),
@@ -246,11 +242,8 @@
 
   .method-flow::after {
     right: calc(12.5% - var(--method-arrow-overhang));
-    background: linear-gradient(
-      135deg,
-      rgba(82, 215, 178, 0.92) 0%,
-      rgba(147, 255, 230, 1) 100%
-    );
+    transform: translate(7px, -50%);
+    background: #8fffe2;
   }
 
   .method-unit {
