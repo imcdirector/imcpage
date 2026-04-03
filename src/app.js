@@ -96,10 +96,13 @@ export function bootstrapApp() {
     }
 
     const menuRect = aboutMenuTitle.getBoundingClientRect();
-    const labelRect = valuesFirstLabel.getBoundingClientRect();
-    const currentShift =
-      parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--values-rail-align-shift")) || 0;
-    const shift = currentShift + (menuRect.left - labelRect.right);
+    const previousShift = document.documentElement.style.getPropertyValue("--values-rail-align-shift");
+    document.documentElement.style.setProperty("--values-rail-align-shift", "0px");
+
+    const naturalLabelRect = valuesFirstLabel.getBoundingClientRect();
+    const shift = menuRect.left - naturalLabelRect.right;
+
+    document.documentElement.style.setProperty("--values-rail-align-shift", previousShift || "0px");
 
     document.documentElement.style.setProperty(
       "--values-rail-align-shift",
