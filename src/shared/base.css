@@ -51,7 +51,7 @@
   --menu-detail-gap: 0.42em;
   --menu-accent: #b9ffe2;
   --chapter-nav-row-bottom: 52px;
-  --chapter-title-gap-from-nav: 8cm;
+  --chapter-title-gap-from-nav: 2cm;
   --chapter-panel-padding-top: calc(var(--chapter-nav-row-bottom) + var(--chapter-title-gap-from-nav));
   --chapter-panel-padding-inline: 6vw;
   --chapter-panel-padding-bottom: 12vh;
