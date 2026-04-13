@@ -1,727 +1,471 @@
+@font-face {
+  font-family: "A Gothic 14";
+  src: url("../../../assets/fonts/agothic13.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "A Gothic 15";
+  src: url("../../../assets/fonts/agothic18.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "A Gothic 16";
+  src: url("../../../assets/fonts/agothic18.ttf") format("truetype");
+  font-display: swap;
+}
+
 .method-stage {
-  width: min(100%, 1100px);
+  width: min(100%, 1500px);
   min-height: var(--chapter-scene-min-height);
   margin-inline: auto;
   display: grid;
-  gap: clamp(18px, 2.7vh, 26px);
+  gap: clamp(34px, 4.2vh, 42px);
   align-content: start;
   justify-items: center;
   text-align: center;
 }
 
 .method-stage__intro {
+  width: min(100%, 980px);
   display: grid;
   gap: 0;
   justify-items: center;
-  width: min(100%, 920px);
+}
+
+.method-stage__eyebrow {
+  display: none;
 }
 
 .method-stage__lead {
   margin: 0;
-  max-width: 24em;
+  max-width: 44em;
+  transform: none;
 }
 
-.method-system {
-  width: min(100%, 1060px);
-  display: grid;
-  grid-template-columns: minmax(0, 0.94fr) minmax(0, 0.86fr);
-  gap: clamp(18px, 1.8vw, 24px);
-  align-items: start;
-}
-
-.method-card {
+.method-stage sup {
+  font-size: 0.78em;
+  line-height: 0;
+  vertical-align: super;
+  margin-left: -0.08em;
   position: relative;
-  min-height: clamp(330px, 29vw, 408px);
-  padding: clamp(18px, 1.7vw, 24px);
-  border: 1px solid rgba(143, 255, 226, 0.14);
-  border-radius: 28px;
-  background:
-    linear-gradient(180deg, rgba(12, 18, 19, 0.96) 0%, rgba(6, 9, 10, 0.94) 100%),
-    radial-gradient(circle at top, rgba(143, 255, 226, 0.06), rgba(143, 255, 226, 0) 52%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.035),
-    0 18px 36px rgba(0, 0, 0, 0.32),
-    0 0 24px rgba(143, 255, 226, 0.05);
-  overflow: hidden;
-  isolation: isolate;
+  top: 0.08em;
 }
 
-.method-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(115deg, rgba(143, 255, 226, 0.06), rgba(143, 255, 226, 0) 28%),
-    repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.024) 0,
-      rgba(255, 255, 255, 0.024) 1px,
-      transparent 1px,
-      transparent 76px
-    ),
-    repeating-linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.02) 0,
-      rgba(255, 255, 255, 0.02) 1px,
-      transparent 1px,
-      transparent 76px
-    );
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.56));
-  pointer-events: none;
-}
-
-.method-card__header {
-  position: relative;
-  z-index: 2;
+.method-framework {
+  --method-accent-bright: #78fff4;
+  --method-motion-chip-width: 200px;
+  --method-motion-gap: 60px;
+  --method-flow-width: calc((4 * var(--method-motion-chip-width)) + (3 * var(--method-motion-gap)));
+  width: min(100%, 1580px);
   display: grid;
-  gap: 6px;
-  justify-items: start;
+  gap: clamp(44px, 5.3vh, 56px);
+  margin-top: clamp(18px, 1.8vh, 24px);
   text-align: left;
 }
 
-.method-card__eyebrow {
-  margin: 0;
-  font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(9px, 0.68vw, 11px);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(143, 255, 226, 0.78);
+.method-framework__header {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  text-align: center;
+  background: transparent;
 }
 
-.method-card__title {
+.method-framework__tag,
+.method-framework__copy,
+.method-cluster__title,
+.method-cluster__summary,
+.method-vector-item__eyebrow,
+.method-vector-item__title,
+.method-vector-item__desc,
+.method-motion-step__title,
+.method-motion-step__subtitle,
+.method-motion-step__desc {
   margin: 0;
-  font-family: "A Gothic 18", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(18px, 1.48vw, 27px);
+}
+
+.method-framework__tag {
+  font-family: "A Gothic 17", "A Gothic 18", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(18.4px, 1.34vw, 23px);
   font-weight: 400;
   line-height: 1.02;
-  letter-spacing: -0.035em;
-  color: rgba(255, 255, 255, 0.98);
-  text-shadow:
-    0 10px 18px rgba(0, 0, 0, 0.28),
-    0 0 12px rgba(255, 255, 255, 0.04);
-}
-
-.method-card__summary {
-  margin: 0;
-  max-width: 28em;
-  font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(10px, 0.77vw, 13px);
-  font-weight: 400;
-  line-height: 1.34;
-  letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.76);
-}
-
-.vector-board {
-  position: relative;
-  min-height: clamp(258px, 22vw, 304px);
-  margin-top: clamp(16px, 1.5vw, 20px);
-  border-radius: 22px;
-  background:
-    linear-gradient(180deg, rgba(7, 11, 12, 0.82), rgba(7, 10, 10, 0.42)),
-    radial-gradient(circle at center, rgba(143, 255, 226, 0.05), rgba(143, 255, 226, 0) 60%);
-  box-shadow:
-    inset 0 0 0 1px rgba(143, 255, 226, 0.09),
-    inset 0 22px 30px rgba(255, 255, 255, 0.016),
-    0 10px 22px rgba(0, 0, 0, 0.22);
-}
-
-.vector-board__plane {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  clip-path: polygon(11% 0, 89% 0, 100% 18%, 100% 82%, 89% 100%, 11% 100%, 0 82%, 0 18%);
-  pointer-events: none;
-}
-
-.vector-board__plane--outer {
-  top: 28px;
-  width: 74%;
-  height: 72%;
-  background:
-    linear-gradient(180deg, rgba(20, 38, 35, 0.22), rgba(8, 12, 12, 0.1)),
-    linear-gradient(90deg, rgba(143, 255, 226, 0.16), rgba(143, 255, 226, 0.02));
-  box-shadow:
-    inset 0 0 0 1px rgba(143, 255, 226, 0.18),
-    0 14px 24px rgba(0, 0, 0, 0.24);
-  transform: translateX(-50%) perspective(960px) rotateX(57deg) translateZ(-1px);
-}
-
-.vector-board__plane--inner {
-  top: 48px;
-  width: 54%;
-  height: 54%;
-  background:
-    linear-gradient(180deg, rgba(20, 40, 36, 0.28), rgba(8, 12, 13, 0.06)),
-    radial-gradient(circle at center, rgba(143, 255, 226, 0.08), rgba(143, 255, 226, 0) 70%);
-  box-shadow:
-    inset 0 0 0 1px rgba(143, 255, 226, 0.24),
-    0 10px 18px rgba(0, 0, 0, 0.22);
-  transform: translateX(-50%) perspective(900px) rotateX(57deg) translateZ(0);
-}
-
-.vector-board__core {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 3;
-  display: grid;
-  gap: 5px;
-  justify-items: center;
-  width: clamp(166px, 13.6vw, 192px);
-  padding: 18px 16px 16px;
-  border: 1px solid rgba(143, 255, 226, 0.28);
-  background:
-    linear-gradient(180deg, rgba(21, 46, 40, 0.97), rgba(8, 14, 14, 0.98)),
-    radial-gradient(circle at top, rgba(143, 255, 226, 0.14), rgba(143, 255, 226, 0) 62%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 18px 26px rgba(0, 0, 0, 0.3),
-    0 0 18px rgba(143, 255, 226, 0.1);
-  clip-path: polygon(11% 0, 89% 0, 100% 18%, 100% 82%, 89% 100%, 11% 100%, 0 82%, 0 18%);
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.vector-board__core::before {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  clip-path: inherit;
-  border: 1px solid rgba(143, 255, 226, 0.12);
-  opacity: 0.9;
-}
-
-.vector-board__core-label,
-.vector-board__core-copy {
-  font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-}
-
-.vector-board__core-label {
-  font-size: clamp(9px, 0.66vw, 10px);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(143, 255, 226, 0.8);
-}
-
-.vector-board__core-title {
-  font-family: "A Gothic 16", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(15px, 1.22vw, 18px);
-  font-weight: 400;
-  line-height: 1.08;
   letter-spacing: -0.03em;
   color: rgba(255, 255, 255, 0.98);
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.42),
+    0 0 20px rgba(0, 0, 0, 0.16);
 }
 
-.vector-board__core-copy {
-  font-size: clamp(9px, 0.66vw, 10px);
-  line-height: 1.34;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.66);
+.method-framework__tag-mark {
+  color: var(--method-accent-bright);
+  text-shadow: 0 0 12px rgba(99, 255, 240, 0.12);
 }
 
-.vector-node {
-  --link-angle: 0deg;
-  --link-length: 72px;
-  position: absolute;
-  z-index: 4;
-  display: grid;
-  gap: 3px;
-  width: clamp(116px, 9vw, 140px);
-  min-height: 78px;
-  padding: 12px 12px 11px;
-  border: 1px solid rgba(143, 255, 226, 0.18);
-  border-radius: 18px;
-  background:
-    linear-gradient(180deg, rgba(19, 24, 26, 0.96), rgba(8, 10, 11, 0.96)),
-    radial-gradient(circle at top, rgba(143, 255, 226, 0.08), rgba(143, 255, 226, 0) 60%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.03),
-    0 10px 18px rgba(0, 0, 0, 0.24);
-  transform: translate(-50%, -50%);
-  transition:
-    transform 220ms ease,
-    border-color 220ms ease,
-    box-shadow 220ms ease;
-  outline: none;
-  cursor: default;
-}
-
-.vector-node:focus-visible,
-.vector-node:hover {
-  border-color: rgba(143, 255, 226, 0.36);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 14px 22px rgba(0, 0, 0, 0.28),
-    0 0 16px rgba(143, 255, 226, 0.12);
-  transform: translate(-50%, -50%) translateY(-3px);
-}
-
-.vector-node__link {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 0;
-  width: var(--link-length);
-  height: 1.5px;
-  background: linear-gradient(90deg, rgba(143, 255, 226, 0.82), rgba(143, 255, 226, 0.04));
-  transform-origin: left center;
-  transform: translate(-3px, -50%) rotate(var(--link-angle));
-  pointer-events: none;
-}
-
-.vector-node__letter,
-.vector-node__title,
-.vector-node__copy {
-  position: relative;
-  z-index: 1;
-}
-
-.vector-node__letter {
-  font-family: "A Gothic 16", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(18px, 1.32vw, 22px);
-  line-height: 1;
-  color: rgba(143, 255, 226, 0.96);
-  text-shadow: 0 0 10px rgba(143, 255, 226, 0.1);
-}
-
-.vector-node__title {
+.method-framework__copy {
   font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(11px, 0.82vw, 13px);
-  line-height: 1.16;
+  font-size: clamp(9px, 0.68vw, 11.5px);
+  font-weight: 400;
+  line-height: 1.22;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.96);
+  color: rgba(99, 255, 240, 0.9);
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.42),
+    0 0 20px rgba(0, 0, 0, 0.16);
 }
 
-.vector-node__copy {
-  font-family: "A Gothic 12", "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(9px, 0.68vw, 11px);
-  line-height: 1.24;
-  letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.vector-node--v {
-  top: 14%;
-  left: 50%;
-  --link-angle: 90deg;
-  --link-length: 74px;
-}
-
-.vector-node--e {
-  top: 31%;
-  left: 82%;
-  --link-angle: 151deg;
-  --link-length: 76px;
-}
-
-.vector-node--c {
-  top: 73%;
-  left: 82%;
-  --link-angle: -151deg;
-  --link-length: 78px;
-}
-
-.vector-node--t {
-  top: 89%;
-  left: 50%;
-  --link-angle: -90deg;
-  --link-length: 76px;
-}
-
-.vector-node--o {
-  top: 73%;
-  left: 18%;
-  --link-angle: -28deg;
-  --link-length: 80px;
-}
-
-.vector-node--r {
-  top: 31%;
-  left: 18%;
-  --link-angle: 28deg;
-  --link-length: 80px;
-}
-
-.motion-board {
-  position: relative;
-  min-height: clamp(260px, 22vw, 308px);
-  margin-top: clamp(16px, 1.5vw, 20px);
-  padding: 8px 34px 20px 0;
-  display: grid;
-  gap: 14px;
-  align-content: start;
-}
-
-.motion-board__arrow {
-  position: absolute;
-  top: calc(50% - 14px);
-  right: 6px;
-  width: 28px;
-  height: 28px;
-  background: #8fffe2;
-  clip-path: polygon(0 0, 100% 50%, 0 100%, 30% 50%);
-  filter: drop-shadow(0 0 8px rgba(143, 255, 226, 0.32));
-}
-
-.motion-board__arrow::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 92%;
-  width: 76px;
-  height: 1.5px;
-  background: linear-gradient(90deg, rgba(143, 255, 226, 0.08), rgba(143, 255, 226, 1));
-  background-size: 180% 100%;
-  transform: translateY(-50%);
-  animation: motion-route-flow 4.6s linear infinite;
-}
-
-.motion-step {
-  --route-length: 132px;
-  --route-angle: 27deg;
+.method-cluster {
   position: relative;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 12px;
-  align-items: center;
-  width: min(100%, 302px);
-  padding: 12px 14px;
-  border: 1px solid rgba(143, 255, 226, 0.16);
-  border-radius: 20px;
-  background:
-    linear-gradient(180deg, rgba(18, 23, 24, 0.96), rgba(8, 10, 11, 0.96)),
-    radial-gradient(circle at left top, rgba(143, 255, 226, 0.08), rgba(143, 255, 226, 0) 56%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.03),
-    0 12px 20px rgba(0, 0, 0, 0.24);
+  gap: 18px;
+  padding: 16px 22px 22px;
+  border: none;
+  background: transparent;
 }
 
-.motion-step::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -10px;
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: rgba(143, 255, 226, 0.96);
-  box-shadow: 0 0 12px rgba(143, 255, 226, 0.32);
-  transform: translateY(-50%);
-}
-
-.motion-step::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -6px;
-  width: var(--route-length);
-  height: 1.5px;
-  background: linear-gradient(90deg, rgba(143, 255, 226, 0.9), rgba(143, 255, 226, 0.12));
-  background-size: 180% 100%;
-  transform-origin: left center;
-  transform: translateY(-50%) rotate(var(--route-angle));
-  animation: motion-route-flow 4.6s linear infinite;
-}
-
-.motion-step--1 {
-  margin-left: 0;
-}
-
-.motion-step--1::after {
-  --route-length: 150px;
-  --route-angle: 25deg;
-}
-
-.motion-step--2 {
-  margin-left: 32px;
-}
-
-.motion-step--2::after {
-  --route-length: 146px;
-  --route-angle: 20deg;
-}
-
-.motion-step--3 {
-  margin-left: 64px;
-}
-
-.motion-step--3::after {
-  --route-length: 140px;
-  --route-angle: 14deg;
-}
-
-.motion-step--4 {
-  margin-left: 96px;
-}
-
-.motion-step--4::after {
+.method-cluster + .method-cluster::before {
   display: none;
 }
 
-.motion-step__index {
-  display: inline-grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  border: 1px solid rgba(143, 255, 226, 0.44);
-  background:
-    radial-gradient(circle at 34% 34%, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 44%),
-    rgba(13, 39, 33, 0.96);
-  font-family: "A Gothic 16", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: 11px;
-  line-height: 1;
-  color: rgba(179, 255, 238, 0.96);
-  box-shadow:
-    0 0 0 4px rgba(0, 0, 0, 0.28),
-    0 0 12px rgba(143, 255, 226, 0.14);
+.method-cluster:last-of-type {
+  padding: 16px 22px 22px;
+  width: min(100%, 1480px);
+  justify-self: center;
 }
 
-.motion-step__body {
+.method-cluster__head {
+  width: 100%;
   display: grid;
-  gap: 3px;
-  text-align: left;
+  justify-items: center;
+  gap: 8px;
+  padding: 14px 18px 12px;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.94) 16%, rgba(0, 0, 0, 0.98) 50%, rgba(0, 0, 0, 0.94) 84%, rgba(0, 0, 0, 0) 100%);
+  text-align: center;
 }
 
-.motion-step__title {
-  margin: 0;
-  font-family: "A Gothic 16", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(15px, 1.12vw, 18px);
+.method-cluster__title {
+  font-family: "A Gothic 17", "A Gothic 18", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(11px, 0.82vw, 14px);
   font-weight: 400;
-  line-height: 1.06;
+  line-height: 1.08;
   letter-spacing: -0.02em;
   color: rgba(255, 255, 255, 0.98);
 }
 
-.motion-step__copy {
-  margin: 0;
+.method-cluster__title-accent {
+  color: var(--method-accent-bright);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(120, 255, 244, 0.12);
+}
+
+.method-cluster__summary {
   font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(10px, 0.74vw, 12px);
+  font-size: clamp(8px, 0.6vw, 10.5px);
   font-weight: 400;
-  line-height: 1.28;
+  line-height: 1.22;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.motion-board__note {
-  margin: 10px 0 0 6px;
-  max-width: 27em;
-  font-family: "A Gothic 12", "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(9px, 0.66vw, 10px);
-  line-height: 1.38;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
-  text-align: left;
+.method-vector-list {
+  width: min(100%, var(--method-flow-width));
+  display: flex;
+  justify-content: space-between;
+  gap: 0;
+  align-items: start;
+  justify-self: center;
+  margin-inline: auto;
+  background: transparent;
 }
 
-.method-proof {
-  width: min(100%, 860px);
+.method-vector-item {
   display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
   gap: 8px;
+  align-items: center;
+  min-height: 47px;
+  width: max-content;
+  flex: 0 0 auto;
+  background: transparent;
+}
+
+.method-vector-item__mark {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.86);
+  border: 1px solid rgba(185, 255, 226, 0.84);
+  box-shadow: 0 0 8px rgba(185, 255, 226, 0.08);
+  font-family: "A Gothic 17", "A Gothic 18", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #b9ffe2;
+}
+
+.method-vector-item__body {
+  display: grid;
+  gap: 2px;
+  min-height: 40px;
+  align-content: center;
+}
+
+.method-vector-item__eyebrow {
+  font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(8px, 0.6vw, 10.5px);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: rgba(185, 255, 226, 0.78);
+  white-space: nowrap;
+}
+
+.method-vector-item__title {
+  font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(8px, 0.6vw, 10.5px);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.98);
+  white-space: nowrap;
+}
+
+.method-vector-item__desc {
+  display: none;
+}
+
+.method-motion-rail {
+  --method-4m-box-height: 48px;
+  position: relative;
+  width: min(100%, var(--method-flow-width));
+  display: grid;
+  grid-template-columns: repeat(4, var(--method-motion-chip-width));
+  column-gap: var(--method-motion-gap);
+  row-gap: 7px;
+  align-items: start;
+  justify-content: center;
+  justify-self: center;
+  padding-top: 0;
+  background: transparent;
+}
+
+.method-motion-rail::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--method-motion-chip-width) / 2);
+  right: calc(var(--method-motion-chip-width) / 2);
+  top: calc(var(--method-4m-box-height) / 2);
+  height: 1.4px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.method-motion-rail::after {
+  display: none;
+}
+
+.method-motion-step {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: var(--method-4m-box-height);
+  align-content: stretch;
   justify-items: center;
+  background: transparent;
+}
+
+.method-motion-step__chip {
+  width: var(--method-motion-chip-width);
+  min-height: var(--method-4m-box-height);
+  display: grid;
+  gap: 1px;
+  align-content: center;
+  justify-items: center;
+  padding: 6px 8px;
+  border: 1px solid rgba(185, 255, 226, 0.72);
+  background: #000000;
   text-align: center;
 }
 
-.method-proof__line {
-  margin: 0;
-}
-
-.method-proof__line--en {
-  font-family: "A Gothic 12", "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(9px, 0.68vw, 11px);
-  line-height: 1.42;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(143, 255, 226, 0.72);
-}
-
-.method-proof__line--kr {
-  max-width: 54em;
-  font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(11px, 0.82vw, 13px);
-  line-height: 1.4;
+.method-motion-step__title {
+  font-family: "A Gothic 16", "A Gothic 18", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(9.6px, 0.72vw, 12.6px);
+  font-weight: 400;
+  line-height: 1.22;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(185, 255, 226, 0.96);
 }
 
-.method-proof__tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
+.method-motion-step__subtitle {
+  display: none;
 }
 
-.method-proof__tag {
-  display: inline-flex;
-  align-items: center;
-  min-height: 24px;
-  padding: 0 11px;
-  border: 1px solid rgba(143, 255, 226, 0.16);
-  border-radius: 999px;
-  background: rgba(10, 14, 15, 0.82);
+.method-motion-step__desc {
+  width: auto;
+  margin: 0;
   font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(9px, 0.68vw, 10px);
-  line-height: 1;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(8px, 0.6vw, 10.5px);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.98);
 }
 
-@keyframes motion-route-flow {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  100% {
-    background-position: 180% 50%;
-  }
+.method-motion-step:last-child::after {
+  display: none;
 }
 
-@media (max-width: 1080px) {
-  .method-system {
-    grid-template-columns: 1fr;
-  }
+.method-motion-step:last-child::before {
+  display: none;
+}
 
-  .method-card {
-    min-height: auto;
+@media (max-width: 1520px) {
+  .method-stage,
+  .method-framework {
+    width: min(100%, 1420px);
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1320px) {
+  .method-stage,
+  .method-framework {
+    width: min(100%, 1180px);
+  }
+
+  .method-vector-list {
+    display: grid;
+    width: 88%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 18px;
+    row-gap: 18px;
+  }
+
+  .method-vector-item {
+    width: 100%;
+  }
+
+  .method-motion-rail {
+    width: 88%;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 14px;
+  }
+
+  .method-motion-step__chip {
+    width: 61%;
+  }
+}
+
+@media (max-width: 960px) {
   .method-stage {
+    width: min(100%, 920px);
+    gap: 28px;
+  }
+
+  .method-framework {
+    width: min(100%, 920px);
+    gap: 28px;
+  }
+
+  .method-vector-list,
+  .method-motion-rail {
+    width: 100%;
+  }
+
+  .method-motion-rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .method-motion-rail::before,
+  .method-motion-rail::after,
+  .method-motion-step:last-child::after,
+  .method-motion-step:last-child::before {
+    display: none;
+  }
+
+  .method-motion-step,
+  .method-motion-step:nth-child(1),
+  .method-motion-step:nth-child(4) {
+    justify-items: center;
+  }
+
+  .method-motion-step__chip {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .method-stage {
+    gap: 34px;
+  }
+
+  .method-stage__lead {
+    max-width: 24em;
+    white-space: normal;
+  }
+
+  .method-framework {
     gap: 24px;
   }
 
-  .method-system {
+  .method-framework__tag {
+    font-size: clamp(18px, 5.2vw, 22px);
+  }
+
+  .method-framework__copy,
+  .method-cluster__summary {
+    font-size: clamp(10px, 3vw, 11px);
+    line-height: 1.25;
+  }
+
+  .method-cluster {
+    padding: 14px 14px 18px;
+  }
+
+  .method-vector-list,
+  .method-motion-rail {
     width: 100%;
-    gap: 16px;
   }
 
-  .method-card {
-    padding: 16px 16px 18px;
-    border-radius: 22px;
+  .method-vector-list {
+    grid-template-columns: 1fr;
+    row-gap: 14px;
   }
 
-  .method-card__title {
-    font-size: clamp(19px, 5.8vw, 24px);
+  .method-motion-rail {
+    grid-template-columns: 1fr;
   }
 
-  .vector-board {
-    min-height: auto;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    padding: 12px;
+  .method-vector-item {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 9px;
   }
 
-  .vector-board__plane {
-    display: none;
+  .method-vector-item__mark {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
   }
 
-  .vector-board__core {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: 100%;
-    transform: none;
-    grid-column: 1 / -1;
+  .method-vector-item__eyebrow,
+  .method-vector-item__desc {
+    white-space: normal;
   }
 
-  .vector-node {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: 100%;
-    min-height: 84px;
-    transform: none;
+  .method-vector-item__title {
+    font-size: clamp(10px, 3vw, 11px);
   }
 
-  .vector-node:focus-visible,
-  .vector-node:hover {
-    transform: translateY(-2px);
+  .method-motion-step__desc {
+    font-size: clamp(10px, 3vw, 11px);
   }
 
-  .vector-node__link {
-    display: none;
-  }
-
-  .motion-board {
-    min-height: auto;
-    padding: 6px 24px 14px 0;
-    gap: 10px;
-  }
-
-  .motion-board__arrow {
-    top: calc(50% - 12px);
-    right: 2px;
-    width: 24px;
-    height: 24px;
-  }
-
-  .motion-board__arrow::before {
-    width: 48px;
-  }
-
-  .motion-step {
-    width: min(100%, 282px);
-    padding: 10px 12px;
-  }
-
-  .motion-step--2 {
-    margin-left: 18px;
-  }
-
-  .motion-step--3 {
-    margin-left: 36px;
-  }
-
-  .motion-step--4 {
-    margin-left: 54px;
-  }
-
-  .motion-step--1::after {
-    --route-length: 96px;
-    --route-angle: 25deg;
-  }
-
-  .motion-step--2::after {
-    --route-length: 92px;
-    --route-angle: 18deg;
-  }
-
-  .motion-step--3::after {
-    --route-length: 88px;
-    --route-angle: 11deg;
-  }
-
-  .motion-step__title {
-    font-size: 14px;
-  }
-
-  .motion-step__copy {
-    font-size: 11px;
-  }
-
-  .motion-board__note {
-    margin-left: 2px;
-    max-width: 24em;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .motion-step::after,
-  .motion-board__arrow::before {
-    animation: none;
-  }
-
-  .vector-node,
-  .vector-node:focus-visible,
-  .vector-node:hover {
-    transition: none;
+  .method-motion-step__title {
+    font-size: clamp(10px, 3vw, 11px);
   }
 }

@@ -43,7 +43,7 @@ body.scene-chapter-open .chapter-nav[aria-hidden="false"] {
   min-height: calc(1em * 1.18);
   color: var(--menu-accent);
   font-family: "A Gothic 18", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(15px, 0.92vw, 17px);
+  font-size: clamp(10px, 0.6vw, 11px);
   font-weight: 400;
   line-height: 1.18;
   letter-spacing: var(--menu-letter-spacing);
@@ -103,7 +103,7 @@ body.scene-chapter-open .chapter-nav[aria-hidden="false"] {
   background: transparent;
   color: rgba(255, 255, 255, 0.56);
   font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(15px, 0.92vw, 17px);
+  font-size: clamp(10px, 0.6vw, 11px);
   font-weight: 400;
   line-height: 1.08;
   letter-spacing: var(--menu-letter-spacing);
@@ -163,7 +163,7 @@ body.scene-chapter-open .chapter-nav[aria-hidden="false"] {
   }
 
   .chapter-nav__detail-row {
-    font-size: clamp(13px, 3.6vw, 15px);
+    font-size: clamp(8px, 2.3vw, 9.6px);
     transform: translate(0, -6px);
   }
 
@@ -177,6 +177,6 @@ body.scene-chapter-open .chapter-nav[aria-hidden="false"] {
   }
 
   .menu-item {
-    font-size: clamp(11px, 3.1vw, 13px);
+    font-size: clamp(7.2px, 2vw, 8.4px);
   }
 }
