@@ -103,7 +103,7 @@ body.scene-chapter-open .chapter-nav[aria-hidden="false"] {
   background: transparent;
   color: rgba(255, 255, 255, 0.56);
   font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
-  font-size: clamp(10px, 0.6vw, 11px);
+  font-size: clamp(12px, 0.72vw, 13.2px);
   font-weight: 400;
   line-height: 1.08;
   letter-spacing: var(--menu-letter-spacing);
@@ -177,6 +177,6 @@ body.scene-chapter-open .chapter-nav[aria-hidden="false"] {
   }
 
   .menu-item {
-    font-size: clamp(7.2px, 2vw, 8.4px);
+    font-size: clamp(8.64px, 2.4vw, 10.08px);
   }
 }
