@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>&#xcd5c;&#xc601;&#xb82c;&#x20;&#xd398;&#xc774;&#xc9c0;</title>
-    <link rel="stylesheet" href="styles.css?v=20260413-method-align-5" />
+    <link rel="stylesheet" href="styles.css?v=20260413-history-trace-5" />
   </head>
   <body>
     <audio id="site-audio" loop preload="auto">
@@ -94,9 +94,9 @@
             class="menu-item"
             type="button"
             data-scene-target="scene-history-areas"
-            data-detail="&#xac78;&#xc5b4;&#xc628;&#x20;&#xcee4;&#xb9ac;&#xc5b4;&#x20;&#xc5ec;&#xc815;&#xacfc;&#x20;&#xc0b6;&#xc758;&#x20;&#xc601;&#xc5ed;&#x2e;"
+            data-detail="걸어온 여정, 삶의 궤적."
           >
-            <span class="menu-item__title">&#xc5ec;&#xc815;&#xacfc;&#x20;&#xc601;&#xc5ed;</span>
+            <span class="menu-item__title">여정과 궤적</span>
           </button>
           <button
             class="menu-item"
@@ -319,102 +319,108 @@
     <section class="chapter-scene" id="scene-history-areas" aria-hidden="true">
       <div class="chapter-scene__scroll">
         <section class="chapter-panel chapter-panel--history-areas">
-          <div class="history-stage">
+          <div class="history-stage history-stage--trajectory" data-state="idle" aria-label="여정과 궤적">
             <div class="history-stage__intro">
-              <p class="history-stage__lead">걸어온 커리어 여정과 삶의 영역.</p>
+              <p class="history-stage__lead">걸어온 여정, 삶의 궤적</p>
             </div>
 
-            <div class="history-stage__grid">
-              <article class="career-trace" aria-label="커리어의 흐름">
-                <div class="history-block__heading">
-                  <h3 class="history-block__title">커리어 여정</h3>
-                </div>
+            <div class="trajectory-canvas" aria-label="여정과 궤적 인터랙션">
+              <div class="trajectory-launch" aria-hidden="true">
+                <span class="trajectory-launch__shaft"></span>
+                <span class="trajectory-launch__head"></span>
+              </div>
 
-                <ol class="career-trace__list">
-                  <li class="career-trace__item">
-                    <button
-                      class="career-step"
-                      type="button"
-                      data-area-focus="individual organization"
-                    >
-                      <span class="career-step__index">01</span>
-                      <span class="career-step__body">
-                        <span class="career-step__title">기획</span>
+              <div class="trajectory-sequence" aria-label="커리어 궤적 흐름">
+                <span class="trajectory-sequence__spine" aria-hidden="true"></span>
+                <span class="trajectory-sequence__head" aria-hidden="true"></span>
+
+                <ol class="trajectory-list">
+                  <li
+                    class="trajectory-item trajectory-item--independent"
+                    data-label="Independent &amp; Stealth Venture"
+                    data-detail="C-Level 전략 자문 &amp; LCA 기반 순환경제 벤처 창립팀 | 자문역 &amp; CSO"
+                  >
+                    <button class="trajectory-entry" type="button" aria-expanded="false">
+                      <span class="trajectory-entry__dot" aria-hidden="true"></span>
+                      <span class="trajectory-entry__line" aria-hidden="true"></span>
+                      <span class="trajectory-entry__label">
+                        <span class="trajectory-entry__label-text"></span>
+                      </span>
+                      <span class="trajectory-entry__detail">
+                        <span class="trajectory-entry__detail-text"></span>
                       </span>
                     </button>
                   </li>
-                  <li class="career-trace__item">
-                    <button
-                      class="career-step"
-                      type="button"
-                      data-area-focus="team organization field"
-                    >
-                      <span class="career-step__index">02</span>
-                      <span class="career-step__body">
-                        <span class="career-step__title">운영</span>
+
+                  <li
+                    class="trajectory-item trajectory-item--battery"
+                    data-label="Global Battery Materials"
+                    data-detail="중장기 전략 수립 및 순환경제 생태계 구축 총괄 | 전략기획 파트장"
+                  >
+                    <button class="trajectory-entry" type="button" aria-expanded="false">
+                      <span class="trajectory-entry__dot" aria-hidden="true"></span>
+                      <span class="trajectory-entry__line" aria-hidden="true"></span>
+                      <span class="trajectory-entry__label">
+                        <span class="trajectory-entry__label-text"></span>
+                      </span>
+                      <span class="trajectory-entry__detail">
+                        <span class="trajectory-entry__detail-text"></span>
                       </span>
                     </button>
                   </li>
-                  <li class="career-trace__item">
-                    <button
-                      class="career-step"
-                      type="button"
-                      data-area-focus="client field"
-                    >
-                      <span class="career-step__index">03</span>
-                      <span class="career-step__body">
-                        <span class="career-step__title">실무</span>
+
+                  <li
+                    class="trajectory-item trajectory-item--startup"
+                    data-label="Pioneer Startup"
+                    data-detail="국내 최초 K-PPM CSAP 인증, 북미 GTM 기획 담당 | 경영기획실장"
+                  >
+                    <button class="trajectory-entry" type="button" aria-expanded="false">
+                      <span class="trajectory-entry__dot" aria-hidden="true"></span>
+                      <span class="trajectory-entry__line" aria-hidden="true"></span>
+                      <span class="trajectory-entry__label">
+                        <span class="trajectory-entry__label-text"></span>
+                      </span>
+                      <span class="trajectory-entry__detail">
+                        <span class="trajectory-entry__detail-text"></span>
                       </span>
                     </button>
                   </li>
-                  <li class="career-trace__item">
-                    <button
-                      class="career-step"
-                      type="button"
-                      data-area-focus="individual team ai"
-                    >
-                      <span class="career-step__index">04</span>
-                      <span class="career-step__body">
-                        <span class="career-step__title">전달</span>
+
+                  <li
+                    class="trajectory-item trajectory-item--public"
+                    data-label="Public Sector"
+                    data-detail="국내 최초 특수목적 복합공간 5개년 중장기 전략 총괄 | 전문조사연구 및 대외협력 담당"
+                  >
+                    <button class="trajectory-entry" type="button" aria-expanded="false">
+                      <span class="trajectory-entry__dot" aria-hidden="true"></span>
+                      <span class="trajectory-entry__line" aria-hidden="true"></span>
+                      <span class="trajectory-entry__label">
+                        <span class="trajectory-entry__label-text"></span>
+                      </span>
+                      <span class="trajectory-entry__detail">
+                        <span class="trajectory-entry__detail-text"></span>
+                      </span>
+                    </button>
+                  </li>
+
+                  <li
+                    class="trajectory-item trajectory-item--olympics"
+                    data-label="Olympics"
+                    data-detail="평창동계올림픽, 세계게임올림픽, 도쿄올림픽 기획 및 운영 | PM"
+                  >
+                    <button class="trajectory-entry" type="button" aria-expanded="false">
+                      <span class="trajectory-entry__dot" aria-hidden="true"></span>
+                      <span class="trajectory-entry__line" aria-hidden="true"></span>
+                      <span class="trajectory-entry__label">
+                        <span class="trajectory-entry__label-text"></span>
+                      </span>
+                      <span class="trajectory-entry__detail">
+                        <span class="trajectory-entry__detail-text"></span>
                       </span>
                     </button>
                   </li>
                 </ol>
-              </article>
-
-              <article class="area-spectrum" aria-label="영역의 반경">
-                <div class="history-block__heading">
-                  <h3 class="history-block__title">문제가 놓인 반경</h3>
-                </div>
-
-                <div class="area-spectrum__grid">
-                  <article class="area-card" data-area-key="individual">
-                    <h4 class="area-card__title">개인</h4>
-                  </article>
-                  <article class="area-card" data-area-key="team">
-                    <h4 class="area-card__title">팀</h4>
-                  </article>
-                  <article class="area-card" data-area-key="organization">
-                    <h4 class="area-card__title">조직</h4>
-                  </article>
-                  <article class="area-card" data-area-key="client">
-                    <h4 class="area-card__title">고객사</h4>
-                  </article>
-                  <article class="area-card" data-area-key="field">
-                    <h4 class="area-card__title">현장</h4>
-                  </article>
-                  <article class="area-card" data-area-key="ai">
-                    <h4 class="area-card__title">AI 시대</h4>
-                  </article>
-                </div>
-              </article>
-            </div>
-
-            <div class="history-stage__closing">
-              <span class="history-stage__closing-rule" aria-hidden="true"></span>
-              <p class="history-stage__closing-text">
-                직함보다 오래 남는 것은, 어떤 자리에서든 문제를 끝까지 책임지는 방식입니다.
-              </p>
+              </div>
             </div>
           </div>
         </section>
@@ -485,6 +491,6 @@
       </span>
     </button>
 
-    <script type="module" src="script.js?v=20260403-values-fix-1"></script>
+    <script type="module" src="script.js?v=20260413-history-trace-5"></script>
   </body>
 </html>
