@@ -38,14 +38,7 @@
 }
 
 .trajectory-launch {
-  position: absolute;
-  left: 50%;
-  bottom: clamp(10px, 2vh, 18px);
-  width: 34px;
-  height: clamp(260px, 44vh, 360px);
-  transform: translateX(-50%) translateY(220px);
-  opacity: 0;
-  pointer-events: none;
+  display: none;
 }
 
 .trajectory-launch__shaft {
@@ -53,7 +46,7 @@
   left: 50%;
   bottom: 0;
   width: 1px;
-  height: 100%;
+  height: calc(100% + 12px);
   transform: translateX(-50%);
   background: linear-gradient(
     180deg,
@@ -69,7 +62,7 @@
   position: absolute;
   left: 50%;
   top: 0;
-  width: 16px;
+  width: 20px;
   height: 12px;
   transform: translateX(-50%);
 }
@@ -81,71 +74,75 @@
   content: "";
   position: absolute;
   left: 50%;
-  bottom: 0;
+  top: 0;
   width: 1px;
   height: 12px;
   background: rgba(255, 255, 255, 0.96);
-  transform-origin: bottom center;
+  transform-origin: top center;
 }
 
 .trajectory-launch__head::before,
 .trajectory-sequence__head::before {
-  transform: translateX(-50%) rotate(34deg);
+  transform: translateX(-50%) rotate(-38deg);
 }
 
 .trajectory-launch__head::after,
 .trajectory-sequence__head::after {
-  transform: translateX(-50%) rotate(-34deg);
+  transform: translateX(-50%) rotate(38deg);
 }
 
 .trajectory-sequence {
-  --trajectory-shift-anchor: -108px;
-  --trajectory-shift-final: -280px;
+  --trajectory-scale: 1.15;
+  --trajectory-center-adjust: 0px;
   position: absolute;
   top: clamp(86px, 12vh, 120px);
+  bottom: 0;
   left: 50%;
   width: min(100%, 980px);
-  height: clamp(300px, 42vh, 360px);
-  opacity: 0;
-  transform: translateX(-50%);
-  transition:
-    opacity 420ms ease,
-    transform 1120ms cubic-bezier(0.22, 1, 0.36, 1);
+  height: auto;
+  opacity: 1;
+  transform: translateX(calc(-50% + var(--trajectory-center-adjust))) scale(var(--trajectory-scale));
+  transform-origin: top center;
+  transition: none;
 }
 
 .trajectory-sequence__spine {
   position: absolute;
-  top: 12px;
-  bottom: 14px;
+  top: 0;
+  bottom: 0;
   left: 50%;
   width: 1px;
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.92) 0%,
-    rgba(255, 255, 255, 0.32) 100%
+    rgba(255, 255, 255, 0.46) 42%,
+    rgba(255, 255, 255, 0.16) 72%,
+    rgba(255, 255, 255, 0) 100%
   );
-  opacity: 0;
+  opacity: 1;
   transform: translateX(-50%);
-  transition: opacity 320ms ease;
+  transition: none;
 }
 
 .trajectory-sequence__head {
   position: absolute;
   left: 50%;
   top: 0;
-  width: 16px;
+  width: 20px;
   height: 12px;
   transform: translateX(-50%);
 }
 
 .trajectory-list {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 1;
   display: grid;
   grid-template-rows: repeat(5, 1fr);
   gap: clamp(10px, 1.4vh, 14px);
   width: 100%;
-  height: 100%;
+  height: clamp(300px, 42vh, 360px);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -155,11 +152,9 @@
   position: relative;
   display: flex;
   align-items: center;
-  opacity: 0;
-  transform: translateY(120px);
-  transition:
-    opacity 520ms ease,
-    transform 760ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .trajectory-item.is-risen {
@@ -177,7 +172,8 @@
   background: transparent;
   color: inherit;
   text-align: left;
-  cursor: pointer;
+  cursor: default;
+  pointer-events: none;
 }
 
 .trajectory-entry:focus-visible {
@@ -196,6 +192,8 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.96);
   transform: translateY(-50%);
+  cursor: pointer;
+  pointer-events: auto;
   transition:
     background-color 240ms ease,
     box-shadow 240ms ease;
@@ -231,6 +229,8 @@
   line-height: 1.08;
   letter-spacing: var(--menu-letter-spacing);
   color: rgba(255, 255, 255, 0.96);
+  cursor: pointer;
+  pointer-events: auto;
   text-shadow: var(--hero-title-shadow);
   transform: translateY(-50%);
 }
@@ -238,8 +238,9 @@
 .trajectory-entry__detail {
   position: absolute;
   top: 50%;
-  left: calc(50% + 248px);
-  width: 660px;
+  left: calc(50% + 188px);
+  width: auto;
+  max-width: 520px;
   min-height: calc(1em * 1.08);
   font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
   font-size: clamp(10px, 0.6vw, 11px);
@@ -271,46 +272,9 @@
   color: var(--trajectory-accent);
 }
 
-.history-stage[data-state="launch"] .trajectory-launch {
-  animation: trajectory-launch-group 3s cubic-bezier(0.18, 0.84, 0.22, 1) forwards;
-}
-
-.history-stage[data-state="stack"] .trajectory-sequence,
-.history-stage[data-state="anchor"] .trajectory-sequence,
-.history-stage[data-state="typing"] .trajectory-sequence,
-.history-stage[data-state="shifted"] .trajectory-sequence,
-.history-stage[data-state="ready"] .trajectory-sequence {
-  opacity: 1;
-}
-
-.history-stage[data-state="stack"] .trajectory-sequence__spine,
-.history-stage[data-state="anchor"] .trajectory-sequence__spine,
-.history-stage[data-state="typing"] .trajectory-sequence__spine,
-.history-stage[data-state="shifted"] .trajectory-sequence__spine,
-.history-stage[data-state="ready"] .trajectory-sequence__spine {
-  opacity: 1;
-}
-
-.history-stage[data-state="anchor"] .trajectory-sequence,
-.history-stage[data-state="typing"] .trajectory-sequence {
-  transform: translateX(calc(-50% + var(--trajectory-shift-anchor)));
-}
-
-.history-stage[data-state="shifted"] .trajectory-sequence,
-.history-stage[data-state="ready"] .trajectory-sequence {
-  transform: translateX(calc(-50% + var(--trajectory-shift-final)));
-}
-
-.history-stage[data-state="anchor"] .trajectory-launch,
-.history-stage[data-state="typing"] .trajectory-launch,
-.history-stage[data-state="shifted"] .trajectory-launch,
-.history-stage[data-state="ready"] .trajectory-launch {
-  opacity: 0;
-  transition: opacity 480ms ease;
-}
-
 .history-stage.is-ready .trajectory-entry__dot::after {
-  animation: trajectory-dot-pulse 6s ease-in-out infinite;
+  animation: none;
+  opacity: 0;
 }
 
 @media (max-width: 960px) {
@@ -327,8 +291,7 @@
   }
 
   .trajectory-sequence {
-    --trajectory-shift-anchor: -84px;
-    --trajectory-shift-final: -198px;
+    --trajectory-scale: 1.1;
     width: min(100%, 920px);
   }
 }
@@ -357,26 +320,22 @@
   }
 
   .trajectory-sequence {
-    --trajectory-shift-anchor: 0px;
-    --trajectory-shift-final: -24px;
+    --trajectory-scale: 1;
     top: 94px;
+    bottom: 0;
     width: 100%;
     height: auto;
   }
 
   .trajectory-sequence__spine {
     top: 10px;
-    bottom: 10px;
+    bottom: 0;
     left: 5px;
   }
 
   .trajectory-list {
     gap: 14px;
     height: auto;
-  }
-
-  .trajectory-item {
-    transform: translateY(84px);
   }
 
   .trajectory-entry {
@@ -426,57 +385,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .trajectory-launch__shaft,
-  .trajectory-launch,
   .history-stage.is-ready .trajectory-entry__dot::after {
     animation: none !important;
   }
 
   .trajectory-item,
-  .trajectory-sequence,
-  .trajectory-launch {
+  .trajectory-sequence {
     transition: none !important;
-  }
-}
-
-@keyframes trajectory-launch-group {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(220px);
-  }
-
-  12% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-}
-
-@keyframes trajectory-dot-pulse {
-  0%,
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-
-  6%,
-  12% {
-    opacity: 0.1;
-    transform: scale(1.22);
-  }
-
-  39%,
-  45% {
-    opacity: 0.1;
-    transform: scale(1.22);
-  }
-
-  72%,
-  78% {
-    opacity: 0.1;
-    transform: scale(1.22);
   }
 }

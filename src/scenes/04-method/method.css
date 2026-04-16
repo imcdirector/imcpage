@@ -54,7 +54,7 @@
 }
 
 .method-framework {
-  --method-accent-bright: #78fff4;
+  --method-accent-bright: var(--menu-accent);
   --method-motion-chip-width: 200px;
   --method-motion-gap: 60px;
   --method-flow-width: calc((4 * var(--method-motion-chip-width)) + (3 * var(--method-motion-gap)));
@@ -100,7 +100,7 @@
 
 .method-framework__tag-mark {
   color: var(--method-accent-bright);
-  text-shadow: 0 0 12px rgba(99, 255, 240, 0.12);
+  text-shadow: 0 0 12px rgba(185, 255, 226, 0.12);
 }
 
 .method-framework__copy {
@@ -109,7 +109,7 @@
   font-weight: 400;
   line-height: 1.22;
   letter-spacing: -0.02em;
-  color: rgba(99, 255, 240, 0.9);
+  color: var(--menu-accent);
   text-shadow:
     0 2px 10px rgba(0, 0, 0, 0.42),
     0 0 20px rgba(0, 0, 0, 0.16);
@@ -157,7 +157,7 @@
 .method-cluster__title-accent {
   color: var(--method-accent-bright);
   font-weight: 700;
-  text-shadow: 0 0 10px rgba(120, 255, 244, 0.12);
+  text-shadow: 0 0 10px rgba(185, 255, 226, 0.12);
 }
 
 .method-cluster__summary {

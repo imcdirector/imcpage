@@ -1,3 +1,3 @@
-import { bootstrapApp } from "./src/app.js?v=20260413-history-trace-5";
+import { bootstrapApp } from "./src/app.js?v=20260414-history-static-6";
 
 bootstrapApp();
