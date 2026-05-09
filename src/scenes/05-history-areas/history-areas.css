@@ -1,5 +1,5 @@
 .chapter-panel--history-areas {
-  --trajectory-accent: #00f0ff;
+  --trajectory-accent: var(--menu-accent);
   --chapter-panel-padding-bottom: 10vh;
   display: block;
   padding:
@@ -265,7 +265,7 @@
 
 .trajectory-item.is-detail-open .trajectory-entry__dot {
   background: var(--trajectory-accent);
-  box-shadow: 0 0 8px rgba(0, 240, 255, 0.22);
+  box-shadow: 0 0 8px rgba(185, 255, 226, 0.18);
 }
 
 .trajectory-item.is-detail-open .trajectory-entry__label {
