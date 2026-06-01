@@ -29,6 +29,7 @@ body.scene-chapter-open #scene-contact[aria-hidden="false"] {
   text-shadow:
     0 2px 10px rgba(0, 0, 0, 0.48),
     0 0 18px rgba(0, 0, 0, 0.18);
+  transform: translateY(var(--chapter-focus-shift));
 }
 
 .contact-stage__lead {

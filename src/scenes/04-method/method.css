@@ -22,9 +22,10 @@
   margin-inline: auto;
   display: grid;
   gap: clamp(34px, 4.2vh, 42px);
-  align-content: start;
+  align-content: center;
   justify-items: center;
   text-align: center;
+  transform: translateY(var(--chapter-focus-shift));
 }
 
 .method-stage__intro {

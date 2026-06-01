@@ -4,10 +4,10 @@
   margin-inline: auto;
   display: grid;
   gap: clamp(42px, 6vh, 58px);
-  align-content: start;
+  align-content: center;
   justify-items: center;
   text-align: center;
-  transform: none;
+  transform: translateY(var(--chapter-focus-shift));
 }
 
 .values-stage__intro {
@@ -144,7 +144,7 @@
 @media (max-width: 640px) {
   .values-stage {
     gap: 34px;
-    transform: none;
+    transform: translateY(var(--chapter-focus-shift));
   }
 
   .values-stage__intro {

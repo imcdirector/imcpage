@@ -1,8 +1,8 @@
-@import url("src/shared/base.css?v=20260413-menu-20down-1");
+@import url("src/shared/base.css?v=20260601-focus-3");
 @import url("src/shared/chapter-nav.css?v=20260413-menu-20down-1");
 @import url("src/scenes/01-hero/hero.css?v=20260330-hero-hover-1");
-@import url("src/scenes/02-about/about.css?v=20260330-title-anchor-1");
-@import url("src/scenes/03-values/values.css?v=20260330-values-align-1");
-@import url("src/scenes/04-method/method.css?v=20260601-method-align-1");
-@import url("src/scenes/05-history-areas/history-areas.css?v=20260414-history-static-6");
-@import url("src/scenes/06-contact/contact.css?v=20260601-contact-4");
+@import url("src/scenes/02-about/about.css?v=20260601-focus-3");
+@import url("src/scenes/03-values/values.css?v=20260601-focus-3");
+@import url("src/scenes/04-method/method.css?v=20260601-focus-3");
+@import url("src/scenes/05-history-areas/history-areas.css?v=20260601-focus-3");
+@import url("src/scenes/06-contact/contact.css?v=20260601-focus-3");

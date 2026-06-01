@@ -13,9 +13,10 @@
   min-height: var(--chapter-scene-min-height);
   margin-inline: auto;
   display: grid;
-  align-content: start;
+  align-content: center;
   gap: clamp(18px, 2.4vh, 24px);
   padding-top: 0;
+  transform: translateY(var(--chapter-focus-shift));
 }
 
 .history-stage__intro {

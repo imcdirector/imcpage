@@ -60,10 +60,10 @@ body.scene-chapter-open .chapter-scene[aria-hidden="false"] {
   display: grid;
   grid-template-rows: auto auto auto;
   gap: clamp(42px, 6vh, 58px);
-  align-content: start;
+  align-content: center;
   justify-items: center;
   text-align: center;
-  transform: none;
+  transform: translateY(var(--chapter-focus-shift));
 }
 
 .about-stage__manifesto {
@@ -191,7 +191,7 @@ body.scene-chapter-open .chapter-scene[aria-hidden="false"] {
 @media (max-width: 640px) {
   .about-stage {
     gap: 34px;
-    transform: none;
+    transform: translateY(var(--chapter-focus-shift));
   }
 
   .about-stage__manifesto {
