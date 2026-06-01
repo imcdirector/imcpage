@@ -1,0 +1,118 @@
+.chapter-panel--contact {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 0 var(--chapter-panel-padding-inline);
+}
+
+body.scene-chapter-open #scene-contact[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: none;
+}
+
+.contact-stage {
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  margin: 0;
+  font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: clamp(12px, 0.82vw, 14px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.86);
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.48),
+    0 0 18px rgba(0, 0, 0, 0.18);
+}
+
+.contact-stage__lead {
+  margin: 0 0 2px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.contact-stage__link {
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  transition:
+    color 180ms ease,
+    text-shadow 180ms ease;
+}
+
+.contact-stage__link:hover,
+.contact-stage__link:focus-visible {
+  color: var(--menu-accent);
+  text-shadow:
+    0 1px 8px rgba(0, 0, 0, 0.46),
+    0 0 12px rgba(185, 255, 226, 0.14);
+}
+
+.contact-stage__link:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.58);
+  outline-offset: 5px;
+}
+
+.contact-stage__linkedin {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  border-radius: 7px;
+  background: #0a66c2;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  transition:
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    filter 180ms ease;
+}
+
+.contact-stage__linkedin:hover,
+.contact-stage__linkedin:focus-visible {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+    0 0 16px rgba(10, 102, 194, 0.3);
+}
+
+.contact-stage__linkedin:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.64);
+  outline-offset: 5px;
+}
+
+.contact-stage__linkedin-mark {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  transform: translateY(1px);
+}
+
+@media (max-width: 640px) {
+  .contact-stage {
+    gap: 6px;
+    font-size: clamp(11px, 3.05vw, 13px);
+  }
+
+  .contact-stage__linkedin {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+  }
+
+  .contact-stage__linkedin-mark {
+    font-size: 17px;
+  }
+}

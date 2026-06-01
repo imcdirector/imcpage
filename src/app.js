@@ -1,5 +1,5 @@
 import { setupAudio } from "./shared/audio.js";
-import { setupChapterNav } from "./shared/chapter-nav.js?v=20260330-navfix-1";
+import { setupChapterNav } from "./shared/chapter-nav.js?v=20260601-contact-3";
 import { createSceneController } from "./shared/scene-controller.js?v=20260330-navfix-1";
 import { setupHeroScene } from "./scenes/01-hero/hero.js?v=20260330-navfix-1";
 import { setupHistoryAreasScene } from "./scenes/05-history-areas/history-areas.js?v=20260414-history-static-6";

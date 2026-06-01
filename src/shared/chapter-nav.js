@@ -187,9 +187,10 @@ export function setupChapterNav({
       event.stopPropagation();
 
       const sceneTarget = item.dataset.sceneTarget;
+      const opensImmediately = item.dataset.immediateScene === "true";
 
       if (sceneTarget) {
-        if (prefersTouchInteraction && !item.classList.contains("is-active")) {
+        if (prefersTouchInteraction && !opensImmediately && !item.classList.contains("is-active")) {
           setActiveMenuItem(item);
           return;
         }
