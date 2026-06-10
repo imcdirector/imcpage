@@ -16,7 +16,7 @@ body.scene-chapter-open #scene-contact[aria-hidden="false"] {
 .contact-stage {
   display: grid;
   justify-items: center;
-  gap: 7px;
+  gap: 8px;
   margin: 0;
   font-family: "A Gothic 13", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
   font-size: clamp(12px, 0.82vw, 14px);
@@ -33,8 +33,14 @@ body.scene-chapter-open #scene-contact[aria-hidden="false"] {
 }
 
 .contact-stage__lead {
-  margin: 0 0 2px;
-  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 4px;
+  font-family: var(--chapter-lead-family);
+  font-size: var(--chapter-lead-size);
+  font-weight: var(--chapter-lead-weight);
+  line-height: var(--chapter-lead-line-height);
+  letter-spacing: var(--chapter-lead-letter-spacing);
+  color: var(--chapter-lead-color);
+  text-shadow: var(--chapter-lead-shadow);
 }
 
 .contact-stage__link {
@@ -58,14 +64,20 @@ body.scene-chapter-open #scene-contact[aria-hidden="false"] {
   outline-offset: 5px;
 }
 
-.contact-stage__linkedin {
+.contact-stage__socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 7px;
+}
+
+.contact-stage__social {
   display: grid;
   place-items: center;
   width: 30px;
   height: 30px;
-  margin-top: 5px;
   border-radius: 7px;
-  background: #0a66c2;
   color: #ffffff;
   text-decoration: none;
   box-shadow:
@@ -77,8 +89,16 @@ body.scene-chapter-open #scene-contact[aria-hidden="false"] {
     filter 180ms ease;
 }
 
-.contact-stage__linkedin:hover,
-.contact-stage__linkedin:focus-visible {
+.contact-stage__social--naver {
+  background: #03c75a;
+}
+
+.contact-stage__social--linkedin {
+  background: #0a66c2;
+}
+
+.contact-stage__social:hover,
+.contact-stage__social:focus-visible {
   filter: brightness(1.08);
   transform: translateY(-1px);
   box-shadow:
@@ -87,16 +107,25 @@ body.scene-chapter-open #scene-contact[aria-hidden="false"] {
     0 0 16px rgba(10, 102, 194, 0.3);
 }
 
-.contact-stage__linkedin:focus-visible {
+.contact-stage__social:focus-visible {
   outline: 1px solid rgba(255, 255, 255, 0.64);
   outline-offset: 5px;
 }
 
+.contact-stage__naver-mark,
 .contact-stage__linkedin-mark {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
   font-weight: 700;
   line-height: 1;
+  letter-spacing: 0;
+}
+
+.contact-stage__naver-mark {
+  font-size: 17px;
+}
+
+.contact-stage__linkedin-mark {
+  font-size: 18px;
   letter-spacing: -0.02em;
   transform: translateY(1px);
 }
@@ -107,10 +136,14 @@ body.scene-chapter-open #scene-contact[aria-hidden="false"] {
     font-size: clamp(11px, 3.05vw, 13px);
   }
 
-  .contact-stage__linkedin {
+  .contact-stage__social {
     width: 28px;
     height: 28px;
     border-radius: 7px;
+  }
+
+  .contact-stage__naver-mark {
+    font-size: 16px;
   }
 
   .contact-stage__linkedin-mark {
