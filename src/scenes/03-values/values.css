@@ -14,7 +14,7 @@
   display: grid;
   gap: 0;
   justify-items: center;
-  width: min(100%, 980px);
+  width: min(100%, 860px);
 }
 
 .values-stage__eyebrow {
@@ -30,18 +30,20 @@
 .values-rail {
   display: grid;
   gap: clamp(20px, 2.6vh, 30px);
-  width: min(100%, 760px);
-  justify-items: center;
-  transform: translateX(calc(clamp(26px, 2.2vw, 38px) + var(--values-rail-align-shift)));
+  width: fit-content;
+  max-width: 100%;
+  justify-self: center;
+  justify-items: start;
+  transform: none;
 }
 
 .value-line {
   display: grid;
-  grid-template-columns: clamp(41px, 4vw, 61px) clamp(150px, 12vw, 190px) minmax(0, 1fr);
+  grid-template-columns: clamp(41px, 4vw, 61px) clamp(150px, 12vw, 190px) max-content;
   align-items: center;
   column-gap: clamp(26px, 2.2vw, 32px);
-  width: min(100%, 760px);
-  justify-self: center;
+  width: auto;
+  justify-self: start;
 }
 
 .value-line__label {
@@ -114,12 +116,13 @@
 
 @media (min-width: 961px) {
   .values-rail {
-    width: min(100%, 860px);
+    width: fit-content;
+    max-width: 100%;
   }
 
   .value-line {
-    width: min(100%, 860px);
-    grid-template-columns: 61px 170px minmax(0, 1fr);
+    width: auto;
+    grid-template-columns: 61px 170px max-content;
     column-gap: 28px;
   }
 
@@ -163,7 +166,9 @@
 
   .values-rail {
     gap: 18px;
-    transform: translateX(calc(14px + var(--values-rail-align-shift)));
+    width: min(100%, 360px);
+    justify-items: center;
+    transform: none;
   }
 
   .value-line {
@@ -171,6 +176,8 @@
     row-gap: 8px;
     column-gap: 0;
     justify-items: center;
+    justify-self: center;
+    width: 100%;
   }
 
   .value-line__label {
